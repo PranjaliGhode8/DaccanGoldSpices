@@ -307,6 +307,20 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // Contact Us Form Listener
+  const contactForm = document.getElementById("contact-us-form");
+  if (contactForm) {
+    contactForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const name = document.getElementById("contact-name").value;
+      const email = document.getElementById("contact-email").value;
+      if (name && email) {
+        alert(`Namaste ${name}! Thank you for reaching out. We have received your inquiry and will reply to ${email} within 24 hours.`);
+        contactForm.reset();
+      }
+    });
+  }
+
   // Close Region Banner
   document.getElementById("close-region-btn").addEventListener("click", () => {
     document.getElementById("region-banner").style.display = "none";
