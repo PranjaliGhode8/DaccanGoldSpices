@@ -194,6 +194,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  // Hamburger Menu Toggle
+  const menuToggle = document.getElementById("menu-toggle");
+  const navMenu = document.querySelector("nav");
+  if (menuToggle && navMenu) {
+    menuToggle.addEventListener("click", () => {
+      navMenu.classList.toggle("active");
+    });
+  }
+
   // Event Listeners for Navigation Routing
   document.querySelectorAll("nav a, .footer-nav-link").forEach(link => {
     link.addEventListener("click", (e) => {
@@ -201,6 +210,10 @@ document.addEventListener("DOMContentLoaded", () => {
       const targetView = link.getAttribute("data-view");
       if (targetView) {
         switchView(targetView);
+        // Collapse mobile menu if open
+        if (navMenu) {
+          navMenu.classList.remove("active");
+        }
       }
     });
   });

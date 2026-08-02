@@ -250,16 +250,68 @@ nav a:hover::after, nav a.active::after {
 /* Mobile Menu Toggle */
 .menu-toggle {
   display: none;
-  font-size: 1.5rem;
-  color: var(--color-charcoal);
 }
 
 @media (max-width: 900px) {
-  nav {
-    display: none; /* simple mobile drawer could be implemented or toggle class */
-  }
   .menu-toggle {
+    display: flex;
+    color: var(--color-ivory);
+    cursor: pointer;
+    padding: 0.2rem;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+  }
+  .menu-toggle:hover {
+    color: var(--color-turmeric);
+  }
+
+  nav {
     display: block;
+    position: fixed;
+    top: 5.8rem; /* below header */
+    left: 0;
+    width: 100%;
+    background-color: rgba(23, 23, 23, 0.98);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 99;
+  }
+
+  header.scrolled nav {
+    top: 4.8rem;
+  }
+
+  nav.active {
+    max-height: 350px; /* expands to show items */
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 0;
+    padding: 1.5rem 2rem;
+  }
+
+  nav li {
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+  
+  nav li:last-child {
+    border-bottom: none;
+  }
+
+  nav a {
+    display: block;
+    padding: 1rem 0;
+    font-size: 1rem;
+    width: 100%;
+  }
+  
+  nav a::after {
+    display: none;
   }
 }
 
