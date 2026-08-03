@@ -360,6 +360,16 @@ function switchView(viewId) {
     }
   });
 
+  // Hide/Show Blog Section (hide on Contact Us page)
+  const blogSection = document.getElementById("blog-section");
+  if (blogSection) {
+    if (viewId === "contact") {
+      blogSection.style.display = "none";
+    } else {
+      blogSection.style.display = "block";
+    }
+  }
+
   // Hide cart and modal just in case
   document.getElementById("cart-overlay").classList.remove("active");
   closeModal();
