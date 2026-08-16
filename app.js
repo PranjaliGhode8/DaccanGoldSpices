@@ -283,29 +283,14 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Checkout Dialog Closures & Actions
-  document.getElementById("checkout-trigger").addEventListener("click", openCheckout);
-  document.getElementById("close-checkout-btn").addEventListener("click", closeCheckout);
-  document.getElementById("checkout-overlay").addEventListener("click", (e) => {
-    if (e.target.id === "checkout-overlay") {
-      closeCheckout();
-    }
-  });
-
-  // Checkout Stepper Buttons
-  document.getElementById("checkout-to-payment").addEventListener("click", (e) => {
-    e.preventDefault();
-    if (validateShippingForm()) {
-      switchCheckoutStep("payment");
-    }
-  });
-
-  document.getElementById("checkout-back-shipping").addEventListener("click", (e) => {
-    e.preventDefault();
-    switchCheckoutStep("shipping");
-  });
-
-  document.getElementById("checkout-form").addEventListener("submit", handleCheckoutSubmit);
+  // Redirect Cart Checkout button to Contact page
+  const checkoutTrigger = document.getElementById("checkout-trigger");
+  if (checkoutTrigger) {
+    checkoutTrigger.addEventListener("click", () => {
+      document.getElementById("cart-overlay").classList.remove("active");
+      switchView("contact");
+    });
+  }
 
   // Newsletter Submit Listener
   const newsletterForm = document.getElementById("newsletter-form");
@@ -828,100 +813,6 @@ function addRecipeSpices(recipeId) {
 
   document.getElementById("cart-overlay").classList.add("active");
   showToast("Recipe spice bundle added to your cart!");
-}
-
-// --- Checkout Dialog Controllers ---
-function openCheckout() {
-  document.getElementById("cart-overlay").classList.remove("active");
-  document.getElementById("checkout-overlay").classList.add("active");
-  
-  // Render Summary
-  const summaryItems = document.getElementById("checkout-items-list");
-  summaryItems.innerHTML = cart.map(item => {
-    return `
-      <div class="checkout-summary-item">
-        <span>${item.qty}x ${item.name} (${item.weight})</span>
-        <strong>${formatPrice(item.priceUSD * item.qty)}</strong>
-      </div>
-    `;
-  }).join("");
-
-  // Totals calculations
-  const subtotalUSD = cart.reduce((sum, item) => sum + (item.priceUSD * item.qty), 0);
-  const shippingUSD = subtotalUSD >= 75.00 ? 0.00 : 9.50; // free global shipping over $75
-  const grandTotalUSD = subtotalUSD + shippingUSD;
-
-  document.getElementById("chk-subtotal").textContent = formatPrice(subtotalUSD);
-  document.getElementById("chk-shipping").textContent = shippingUSD === 0 ? "FREE" : formatPrice(shippingUSD);
-  document.getElementById("chk-total").textContent = formatPrice(grandTotalUSD);
-
-  // Default to step 1
-  switchCheckoutStep("shipping");
-}
-
-function closeCheckout() {
-  document.getElementById("checkout-overlay").classList.remove("active");
-}
-
-function switchCheckoutStep(step) {
-  document.querySelectorAll(".checkout-step-panel").forEach(p => p.classList.remove("active"));
-  document.querySelectorAll(".checkout-step").forEach(s => s.classList.remove("active"));
-
-  if (step === "shipping") {
-    document.getElementById("step-shipping").classList.add("active");
-    document.getElementById("step-indicator-shipping").classList.add("active");
-  } else if (step === "payment") {
-    document.getElementById("step-payment").classList.add("active");
-    document.getElementById("step-indicator-payment").classList.add("active");
-  } else if (step === "confirmation") {
-    document.getElementById("step-confirmation").classList.add("active");
-    document.getElementById("step-indicator-confirmation").classList.add("active");
-  }
-}
-
-function validateShippingForm() {
-  const form = document.getElementById("checkout-form");
-  const fields = ["shipping-name", "shipping-email", "shipping-address", "shipping-city", "shipping-zip", "shipping-country"];
-  
-  let valid = true;
-  fields.forEach(fid => {
-    const input = document.getElementById(fid);
-    if (!input.value.trim()) {
-      input.style.borderColor = "#E63946";
-      valid = false;
-    } else {
-      input.style.borderColor = "var(--color-border)";
-    }
-  });
-
-  return valid;
-}
-
-function handleCheckoutSubmit(e) {
-  e.preventDefault();
-  
-  // Simulated Card validation
-  const cardNum = document.getElementById("payment-card").value.replace(/\s+/g, '');
-  const expiry = document.getElementById("payment-expiry").value;
-  const cvv = document.getElementById("payment-cvv").value;
-
-  if (cardNum.length < 15 || !expiry || cvv.length < 3) {
-    alert("Please enter valid card details for this simulation.");
-    return;
-  }
-
-  // Success Step
-  switchCheckoutStep("confirmation");
-  
-  // Clear cart
-  cart = [];
-  saveCartToStorage();
-  updateCartUI();
-}
-
-function completeSimulatedOrder() {
-  closeCheckout();
-  switchView("home");
 }
 
 // --- Toast notification utility ---
