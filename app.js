@@ -338,6 +338,9 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("close-region-btn").addEventListener("click", () => {
     document.getElementById("region-banner").style.display = "none";
   });
+
+  // Set default view on load
+  switchView("home");
 });
 
 // --- Dynamic View Router ---
@@ -359,6 +362,16 @@ function switchView(viewId) {
       link.classList.add("active");
     }
   });
+
+  // Hide/Show Currency Selector (hide on Home page)
+  const currencySelect = document.getElementById("currency-select");
+  if (currencySelect) {
+    if (viewId === "home") {
+      currencySelect.style.display = "none";
+    } else {
+      currencySelect.style.display = "block";
+    }
+  }
 
   // Hide/Show Blog Section (hide on Contact Us page)
   const blogSection = document.getElementById("blog-section");
@@ -468,9 +481,6 @@ function renderProducts(categoryFilter) {
             <div class="product-actions-hover">
               <button class="action-btn quick-view-btn" onclick="openProductModal('${p.id}')" title="Quick View">
                 <svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
-              </button>
-              <button class="action-btn add-cart-btn" onclick="quickAddCart('${p.id}')" title="Add to Cart">
-                <svg viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
               </button>
             </div>
           </div>
