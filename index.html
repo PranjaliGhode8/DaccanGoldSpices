@@ -34,7 +34,7 @@
 
       <!-- Action items -->
       <div class="header-actions">
-        <select id="currency-select" class="currency-select" aria-label="Select Currency">
+        <select id="currency-select" class="currency-select" aria-label="Select Currency" style="display: none;">
           <option value="USD">USD ($)</option>
           <option value="EUR">EUR (€)</option>
           <option value="GBP">GBP (£)</option>
@@ -133,17 +133,7 @@
       </div>
     </section>
 
-    <!-- Home Spice Guide Teaser -->
-    <section class="container" style="padding-bottom: 5rem;">
-      <div class="section-title">
-        <span>Master the Spices</span>
-        <h2>The Spice Guide</h2>
-        <p>Curious about cardamom pairings or the heat profile of Kashmiri Red Chili? Learn how to unlock the health and culinary benefits of spices.</p>
-      </div>
-      <div style="text-align: center;">
-        <button class="btn btn-dark" onclick="switchView('guide')">Open Educational Guide</button>
-      </div>
-    </section>
+
   </main>
 
   <!-- ==================== VIEW: SHOP ==================== -->
@@ -426,17 +416,6 @@
 
           <div class="modal-actions-row" style="margin-top: 1.5rem;">
             <button class="add-to-cart-btn" onclick="closeModal(); switchView('contact');" style="width: 100%; text-align: center;">Inquire / Order</button>
-          </div>
-
-          <!-- Reviews Section -->
-          <div class="reviews-section">
-            <div class="reviews-header-row">
-              <h4 class="reviews-title">Customer Whispers</h4>
-              <span class="stars">★★★★★</span>
-            </div>
-            <div id="modal-reviews-list">
-              <!-- Reviews rendered dynamically -->
-            </div>
           </div>
 
         </div>
