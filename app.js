@@ -158,31 +158,15 @@ const currencies = {
 
 // 3. State Variables
 let currentCurrency = "USD";
-let cart = [];
-let selectedWeightIndex = 0;
 let modalProduct = null;
 
 // --- Initialize App ---
 document.addEventListener("DOMContentLoaded", () => {
-  // Load Cart from localStorage
-  const savedCart = localStorage.getItem("deccan_spice_cart");
-  if (savedCart) {
-    try {
-      cart = JSON.parse(savedCart);
-      updateCartUI();
-    } catch (e) {
-      console.error("Failed to parse cart", e);
-    }
-  }
-
   // Detect Region & Set Recommendation Banner
   detectRegion();
 
   // Load Products onto Page
   renderProducts("all");
-
-  // Load Spice Guide
-  renderSpiceGuide("all");
 
   // Header Scroll Effect
   window.addEventListener("scroll", () => {
@@ -233,9 +217,8 @@ document.addEventListener("DOMContentLoaded", () => {
   currencySelect.addEventListener("change", (e) => {
     currentCurrency = e.target.value;
     updateProductPrices();
-    updateCartUI();
     if (modalProduct) {
-      updateModalPrice();
+      document.getElementById("modal-price").textContent = formatPrice(modalProduct.basePriceUSD);
     }
   });
 
@@ -249,32 +232,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Spice Guide Filters
-  document.querySelectorAll(".guide-filter-btn").forEach(tab => {
-    tab.addEventListener("click", () => {
-      document.querySelectorAll(".guide-filter-btn").forEach(t => t.classList.remove("active"));
-      tab.classList.add("active");
-      const heat = tab.getAttribute("data-heat");
-      renderSpiceGuide(heat);
-    });
-  });
-
-  // Cart Drawer Opens / Closes
-  document.getElementById("cart-trigger").addEventListener("click", (e) => {
-    e.preventDefault();
-    document.getElementById("cart-overlay").classList.add("active");
-  });
-
-  document.getElementById("close-cart-btn").addEventListener("click", () => {
-    document.getElementById("cart-overlay").classList.remove("active");
-  });
-
-  document.getElementById("cart-overlay").addEventListener("click", (e) => {
-    if (e.target.id === "cart-overlay") {
-      document.getElementById("cart-overlay").classList.remove("active");
-    }
-  });
-
   // Modal Closures
   document.getElementById("close-modal-btn").addEventListener("click", closeModal);
   document.getElementById("modal-overlay").addEventListener("click", (e) => {
@@ -282,15 +239,6 @@ document.addEventListener("DOMContentLoaded", () => {
       closeModal();
     }
   });
-
-  // Redirect Cart Checkout button to Contact page
-  const checkoutTrigger = document.getElementById("checkout-trigger");
-  if (checkoutTrigger) {
-    checkoutTrigger.addEventListener("click", () => {
-      document.getElementById("cart-overlay").classList.remove("active");
-      switchView("contact");
-    });
-  }
 
   // Newsletter Submit Listener
   const newsletterForm = document.getElementById("newsletter-form");
@@ -498,130 +446,12 @@ function updateProductPrices() {
   });
 }
 
-// --- Quick Add to Cart (Default 100g or 1 Box) ---
-function quickAddCart(productId) {
-  const p = products.find(prod => prod.id === productId);
-  if (!p) return;
-
-  // Add default size (usually 100g / weight multiplier = 1, which is second option or only option)
-  const defaultWeight = p.weights[1] || p.weights[0];
-  const weightName = defaultWeight.name;
-  const finalPrice = p.basePriceUSD * defaultWeight.multiplier;
-
-  addToCartState(p.id, p.name, weightName, finalPrice, p.image, 1);
-  showToast(`${p.name} (${weightName}) added to cart.`);
-}
-
-// --- Add to Cart State Management ---
-function addToCartState(id, name, weight, priceUSD, image, qty) {
-  // Unique cart item identifier: id + size
-  const cartItemId = `${id}-${weight.replace(/\s+/g, '')}`;
-  const existingItemIndex = cart.findIndex(item => item.cartItemId === cartItemId);
-
-  if (existingItemIndex > -1) {
-    cart[existingItemIndex].qty += qty;
-  } else {
-    cart.push({
-      cartItemId,
-      id,
-      name,
-      weight,
-      priceUSD,
-      image,
-      qty
-    });
-  }
-
-  updateCartUI();
-  saveCartToStorage();
-}
-
-function saveCartToStorage() {
-  localStorage.setItem("deccan_spice_cart", JSON.stringify(cart));
-}
-
-// --- Update Cart Drawer & Badge UI ---
-function updateCartUI() {
-  const cartBadge = document.getElementById("cart-badge");
-  const cartDrawerBody = document.getElementById("cart-drawer-body");
-  const cartSubtotal = document.getElementById("cart-subtotal");
-  const cartCount = cart.reduce((sum, item) => sum + item.qty, 0);
-
-  // Update Header Badges
-  cartBadge.textContent = cartCount;
-
-  if (cart.length === 0) {
-    cartDrawerBody.innerHTML = `
-      <div class="cart-empty-msg">
-        <svg viewBox="0 0 24 24"><path d="M19 6h-2c0-2.76-2.24-5-5-5S7 3.24 7 6H5c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-7-3c1.66 0 3 1.34 3 3H9c0-1.66 1.34-3 3-3zm7 17H5V8h14v12zm-7-8c-2.76 0-5 2.24-5 5h2c0-1.66 1.34-3 3-3s3 1.34 3 3h2c0-2.24-2.24-5-5-5z"/></svg>
-        <p>Your copper spice jars are waiting to be filled.</p>
-        <button class="btn btn-dark" onclick="switchView('shop')">Explore Collection</button>
-      </div>
-    `;
-    cartSubtotal.textContent = formatPrice(0);
-    document.getElementById("checkout-trigger").setAttribute("disabled", "true");
-    document.getElementById("checkout-trigger").style.opacity = "0.5";
-    return;
-  }
-
-  // Active items in cart
-  document.getElementById("checkout-trigger").removeAttribute("disabled");
-  document.getElementById("checkout-trigger").style.opacity = "1";
-
-  const cartHTML = cart.map((item, index) => {
-    return `
-      <div class="cart-item">
-        <img class="cart-item-img" src="${item.image}" alt="${item.name}">
-        <div class="cart-item-details">
-          <h4 class="cart-item-title">${item.name}</h4>
-          <span class="cart-item-weight">Size: ${item.weight}</span>
-          <div class="cart-item-qty-row">
-            <div class="qty-selector">
-              <button class="qty-btn" onclick="updateItemQty(${index}, -1)">-</button>
-              <div class="qty-val">${item.qty}</div>
-              <button class="qty-btn" onclick="updateItemQty(${index}, 1)">+</button>
-            </div>
-            <span class="cart-item-price">${formatPrice(item.priceUSD * item.qty)}</span>
-          </div>
-          <button class="remove-cart-item" onclick="removeCartItem(${index})">Remove</button>
-        </div>
-      </div>
-    `;
-  }).join("");
-
-  cartDrawerBody.innerHTML = cartHTML;
-
-  // Calculate Subtotal
-  const subtotalUSD = cart.reduce((sum, item) => sum + (item.priceUSD * item.qty), 0);
-  cartSubtotal.textContent = formatPrice(subtotalUSD);
-}
-
-function updateItemQty(index, delta) {
-  if (cart[index]) {
-    cart[index].qty += delta;
-    if (cart[index].qty <= 0) {
-      cart.splice(index, 1);
-    }
-    updateCartUI();
-    saveCartToStorage();
-  }
-}
-
-function removeCartItem(index) {
-  if (cart[index]) {
-    cart.splice(index, 1);
-    updateCartUI();
-    saveCartToStorage();
-  }
-}
-
 // --- Product Modal Opening / Setting ---
 function openProductModal(productId) {
   const p = products.find(prod => prod.id === productId);
   if (!p) return;
 
   modalProduct = p;
-  selectedWeightIndex = p.weights.length > 1 ? 1 : 0; // Default to 100g/second index if available
 
   document.getElementById("modal-img").src = p.image;
   document.getElementById("modal-img").alt = p.name;
@@ -635,79 +465,13 @@ function openProductModal(productId) {
   document.getElementById("meta-taste").textContent = p.tasteProfile;
   document.getElementById("meta-usage").textContent = p.usage;
 
-  // Qty reset
-  document.getElementById("modal-qty-val").textContent = "1";
+  // Set default base price
+  document.getElementById("modal-price").textContent = formatPrice(p.basePriceUSD);
 
-  // Render weight options
-  const weightGrid = document.getElementById("weight-selector-grid");
-  weightGrid.innerHTML = p.weights.map((w, idx) => {
-    return `
-      <button class="weight-btn ${idx === selectedWeightIndex ? 'active' : ''}" 
-              onclick="selectWeight(${idx})">
-        ${w.name}
-      </button>
-    `;
-  }).join("");
-
-  updateModalPrice();
   renderModalReviews();
 
   document.getElementById("modal-overlay").classList.add("active");
 }
-
-function selectWeight(index) {
-  selectedWeightIndex = index;
-  // Update weight buttons
-  document.querySelectorAll(".weight-btn").forEach((btn, idx) => {
-    if (idx === index) {
-      btn.classList.add("active");
-    } else {
-      btn.classList.remove("active");
-    }
-  });
-  updateModalPrice();
-}
-
-function updateModalPrice() {
-  if (!modalProduct) return;
-  const weightOption = modalProduct.weights[selectedWeightIndex];
-  const activePriceUSD = modalProduct.basePriceUSD * weightOption.multiplier;
-  
-  document.getElementById("modal-price").textContent = formatPrice(activePriceUSD);
-}
-
-function adjustModalQty(delta) {
-  const qtyEl = document.getElementById("modal-qty-val");
-  let currentQty = parseInt(qtyEl.textContent);
-  currentQty += delta;
-  if (currentQty < 1) currentQty = 1;
-  qtyEl.textContent = currentQty;
-}
-
-// Bind modal qty adjustments
-document.getElementById("modal-qty-minus").addEventListener("click", () => adjustModalQty(-1));
-document.getElementById("modal-qty-plus").addEventListener("click", () => adjustModalQty(1));
-
-// Add to Cart from Modal
-document.getElementById("modal-add-to-cart").addEventListener("click", () => {
-  if (!modalProduct) return;
-  
-  const qty = parseInt(document.getElementById("modal-qty-val").textContent);
-  const weightOption = modalProduct.weights[selectedWeightIndex];
-  const unitPriceUSD = modalProduct.basePriceUSD * weightOption.multiplier;
-
-  addToCartState(
-    modalProduct.id,
-    modalProduct.name,
-    weightOption.name,
-    unitPriceUSD,
-    modalProduct.image,
-    qty
-  );
-
-  closeModal();
-  showToast(`${qty}x ${modalProduct.name} (${weightOption.name}) added to cart.`);
-});
 
 function renderModalReviews() {
   const reviewsContainer = document.getElementById("modal-reviews-list");
@@ -731,88 +495,6 @@ function renderModalReviews() {
 function closeModal() {
   document.getElementById("modal-overlay").classList.remove("active");
   modalProduct = null;
-}
-
-// --- Render Spice Guide Page Content ---
-const spiceGuideData = [
-  { name: "Green Cardamom", localName: "Elaichi", origin: "Kerala, India", heat: 0, profile: "Floral, eucalyptus, herbal, sweet.", pairings: "Chai, saffron, sweet milk desserts, rice puddings." },
-  { name: "Kashmiri Red Chili", localName: "Lal Mirch", origin: "Kashmir, India", heat: 2, profile: "Smoky, sweet bell pepper, vibrant red dye.", pairings: "Yogurt marinades, creamy tomato gravy, roasted chicken." },
-  { name: "Golden Turmeric", localName: "Haldi", origin: "Sangli, Maharashtra", heat: 0, profile: "Earthy, warm, ginger-like woodiness.", pairings: "Lentils, stews, warm milk, ginger, root vegetables." },
-  { name: "Royal Garam Masala", localName: "Warm Spice Mix", origin: "Old Delhi, India", heat: 1, profile: "Sweet-spicy, aromatic cinnamon, cloves, cardamom.", pairings: "Finishing touch on curries, lentil soups, roasted potato fillings." },
-  { name: "Deccan Biryani Masala", localName: "Nizami Blend", origin: "Hyderabad Deccan", heat: 2.5, profile: "Savory warmth, robust star anise, rose petals, shahi jeera.", pairings: "Basmati rice, mutton or chicken stews, vegetable layers." }
-];
-
-function renderSpiceGuide(heatFilter) {
-  const guideGrid = document.getElementById("guide-grid-container");
-  if (!guideGrid) return;
-
-  let filtered = spiceGuideData;
-  if (heatFilter === "mild") {
-    filtered = spiceGuideData.filter(s => s.heat <= 1);
-  } else if (heatFilter === "spicy") {
-    filtered = spiceGuideData.filter(s => s.heat >= 2);
-  }
-
-  guideGrid.innerHTML = filtered.map(s => {
-    // Generate fire icons
-    let fireStars = "";
-    for (let i = 1; i <= 5; i++) {
-      fireStars += `<svg class="chili-icon ${i <= s.heat ? 'active' : ''}" viewBox="0 0 24 24"><path d="M12 2C11.38 2 10.9 2.5 10.9 3.1c0 1.2.7 2.1 1.6 2.6.9.5 1.5 1.5 1.5 2.6 0 1.6-1.3 3-3 3S8 10 8 8.4C8 6.7 9.1 5.3 10.6 4.7 9.5 5 8.7 5.9 8.7 7.1c0 1.8 1.5 3.3 3.3 3.3s3.3-1.5 3.3-3.3c0-2.2-1.7-4-3.8-4.8.4-.2.9-.3 1.4-.3 1.8 0 3.3 1.5 3.3 3.3 0 2.8-2.2 5-5 5s-5-2.2-5-5c0-1.8 1-3.3 2.5-4.1C6.7 6.1 5 8.4 5 11c0 3.9 3.1 7 7 7s7-3.1 7-7c0-4.6-3.8-8-9-9z"/></svg>`;
-    }
-
-    return `
-      <div class="guide-card">
-        <div class="guide-card-header">
-          <div class="guide-spice-name">
-            <h3>${s.name}</h3>
-            <span>(${s.localName})</span>
-          </div>
-          <div class="heat-indicator" title="Heat level: ${s.heat}/5">
-            ${fireStars}
-          </div>
-        </div>
-        <div class="guide-details">
-          <div class="guide-detail-row">
-            <strong>Origin</strong>
-            <p>${s.origin}</p>
-          </div>
-          <div class="guide-detail-row">
-            <strong>Flavor Profile</strong>
-            <p>${s.profile}</p>
-          </div>
-          <div class="guide-detail-row">
-            <strong>Best Culinary Pairings</strong>
-            <p>${s.pairings}</p>
-          </div>
-        </div>
-      </div>
-    `;
-  }).join("");
-}
-
-// --- Add All Spices from a Recipe ---
-function addRecipeSpices(recipeId) {
-  let productIds = [];
-  if (recipeId === "biryani") {
-    productIds = ["biryani_blend", "cardamom", "garam_masala"];
-  } else if (recipeId === "turmeric_milk") {
-    productIds = ["turmeric", "cardamom"];
-  } else if (recipeId === "butter_chicken") {
-    productIds = ["chili", "garam_masala", "turmeric"];
-  }
-
-  productIds.forEach(id => {
-    const p = products.find(prod => prod.id === id);
-    if (p) {
-      // Default to 100g sizes
-      const defaultWeight = p.weights[1] || p.weights[0];
-      const price = p.basePriceUSD * defaultWeight.multiplier;
-      addToCartState(p.id, p.name, defaultWeight.name, price, p.image, 1);
-    }
-  });
-
-  document.getElementById("cart-overlay").classList.add("active");
-  showToast("Recipe spice bundle added to your cart!");
 }
 
 // --- Toast notification utility ---
