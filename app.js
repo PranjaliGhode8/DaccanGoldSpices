@@ -240,18 +240,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Newsletter Submit Listener
-  const newsletterForm = document.getElementById("newsletter-form");
-  if (newsletterForm) {
-    newsletterForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-      const email = document.getElementById("newsletter-email").value;
-      if (email) {
-        alert(`Dhanyavad (Thank you)! Warm spice guides and exclusive invitations will now be sent to ${email}.`);
-        newsletterForm.reset();
-      }
-    });
-  }
+
 
   // Contact Us Form Listener
   const contactForm = document.getElementById("contact-us-form");
