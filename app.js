@@ -310,15 +310,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("hero-shop-cta").addEventListener("click", () => switchView("shop"));
   document.getElementById("hero-story-cta").addEventListener("click", () => switchView("story"));
 
-  // Currency Switcher
-  const currencySelect = document.getElementById("currency-select");
-  currencySelect.addEventListener("change", (e) => {
-    currentCurrency = e.target.value;
-    updateProductPrices();
-    if (modalProduct) {
-      document.getElementById("modal-price").textContent = formatPrice(modalProduct.basePriceUSD);
-    }
-  });
+
 
   // Category Tab Filter (Shop Page)
   document.querySelectorAll(".tab-btn").forEach(tab => {
@@ -461,9 +453,8 @@ function renderProducts(categoryFilter) {
           <p style="font-size:0.85rem; color:#666; font-weight:300; margin-bottom:1rem; flex-grow:1;">
             ${p.origin}
           </p>
-          <div class="product-meta-row">
-            <span class="product-price" data-base-price="${p.basePriceUSD}">${formatPrice(p.basePriceUSD)}</span>
-            <button class="quick-add-btn" onclick="openProductModal('${p.id}')">Explore</button>
+          <div class="product-meta-row" style="justify-content: center;">
+            <button class="quick-add-btn" onclick="openProductModal('${p.id}')" style="width: 100%; text-align: center;">Explore</button>
           </div>
         </div>
       </div>
@@ -473,44 +464,6 @@ function renderProducts(categoryFilter) {
   if (shopGrid) {
     shopGrid.innerHTML = cardsHTML;
   }
-
-  // Render featured items on homepage (first 3)
-  if (homeFeaturedGrid && categoryFilter === "all") {
-    const featuredHTML = products.slice(0, 3).map(p => {
-      return `
-        <div class="product-card" data-id="${p.id}">
-          <div class="product-img-wrapper">
-            <span class="product-label">Single Origin</span>
-            <img src="${p.image}" alt="${p.name}">
-            <div class="product-actions-hover">
-              <button class="action-btn quick-view-btn" onclick="openProductModal('${p.id}')" title="Quick View">
-                <svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
-              </button>
-            </div>
-          </div>
-          <div class="product-info">
-            <span class="product-category">${p.category}</span>
-            <h3 class="product-title" onclick="openProductModal('${p.id}')">${p.name}</h3>
-            <div class="product-meta-row">
-              <span class="product-price" data-base-price="${p.basePriceUSD}">${formatPrice(p.basePriceUSD)}</span>
-              <button class="quick-add-btn" onclick="openProductModal('${p.id}')">Explore</button>
-            </div>
-          </div>
-        </div>
-      `;
-    }).join("");
-    homeFeaturedGrid.innerHTML = featuredHTML;
-  }
-}
-
-// --- Update All Prices on currency switch ---
-function updateProductPrices() {
-  document.querySelectorAll(".product-price").forEach(el => {
-    const basePrice = parseFloat(el.getAttribute("data-base-price"));
-    if (!isNaN(basePrice)) {
-      el.textContent = formatPrice(basePrice);
-    }
-  });
 }
 
 // --- Product Modal Opening / Setting ---
@@ -532,8 +485,7 @@ function openProductModal(productId) {
   document.getElementById("meta-taste").textContent = p.tasteProfile;
   document.getElementById("meta-usage").textContent = p.usage;
 
-  // Set default base price
-  document.getElementById("modal-price").textContent = formatPrice(p.basePriceUSD);
+
 
   renderModalReviews();
 
