@@ -3,42 +3,18 @@
 // 1. Product Database
 const products = [
   {
-    id: "cardamom",
-    name: "Green Cardamom Pods",
-    category: "Whole Spices",
-    categoryKey: "whole",
-    origin: "Western Ghats, Kerala, India",
-    description: "Known as the 'Queen of Spices,' our cardamom is hand-harvested from high-altitude estates in Kerala. These plump green pods lock in rich volatile oils, ensuring an unmatched release of flavor.",
-    aroma: "Sweet, citrusy, and deeply herbal with eucalyptus undertones.",
-    tasteProfile: "Warming, citrus-forward, complex, and aromatic with a delicate sweet finish.",
-    usage: "Gently crush pods before adding to brewing chai, slow-cooked rice dishes, or infusing sweet creams and desserts.",
-    basePriceUSD: 12.00,
-    rating: 4.9,
-    reviewCount: 148,
-    image: "assets/cardamom.jpg",
-    weights: [
-      { name: "50g", multiplier: 0.6 },
-      { name: "100g", multiplier: 1.0 },
-      { name: "250g", multiplier: 2.2 }
-    ],
-    reviews: [
-      { author: "Evelyn S. (London, UK)", rating: 5, text: "The aroma when you crack open one of these pods is incredible. Absolutely nothing like supermarket cardamom. A real treasure." },
-      { author: "Liam H. (Boston, USA)", rating: 5, text: "Extremely high quality. Plump, bright green, and full of seeds. Essential for my morning cardamom coffee." }
-    ]
-  },
-  {
-    id: "chili",
-    name: "Kashmiri Red Chili",
+    id: "chilli_powder",
+    name: "Chilli Powder",
     category: "Ground Spices",
     categoryKey: "ground",
-    origin: "Pampore Valley, Kashmir, India",
-    description: "Prized for its brilliant crimson color and gentle warmth, our Kashmiri Red Chili is milled from sun-dried chilies. It provides that classic, appetizing red color without overwhelming heat.",
-    aroma: "Richly smoky, sweet, and reminiscent of dried bell peppers.",
-    tasteProfile: "Extremely mild, sweet heat with fruity and smoky undertones.",
-    usage: "Add to oil at the beginning of cooking to release its oil-soluble red pigments, ideal for butter chicken, tandoori marinades, and stews.",
-    basePriceUSD: 8.50,
+    origin: "Guntur, Andhra Pradesh, India",
+    description: "Finely ground from premium sun-dried red chilies, this powder delivers a bright crimson color and a bold, sharp heat to elevate any curry or marinade.",
+    aroma: "Pungent, sharp, and intensely warm.",
+    tasteProfile: "Vibrant, biting heat with a clean and smoky finish.",
+    usage: "Dust into tempering oils, hot curries, or yogurt marinades for a classic spicy touch.",
+    basePriceUSD: 7.50,
     rating: 4.8,
-    reviewCount: 215,
+    reviewCount: 124,
     image: "assets/chili.jpg",
     weights: [
       { name: "50g", multiplier: 0.6 },
@@ -46,23 +22,23 @@ const products = [
       { name: "250g", multiplier: 2.2 }
     ],
     reviews: [
-      { author: "Marie L. (Paris, France)", rating: 5, text: "I love making Indian curries but can't handle too much heat. This spice is a game changer. Gorgeous red color, very mild warmth!" },
-      { author: "Rohan M. (Toronto, Canada)", rating: 4, text: "Very fresh, authentic taste. Gives that perfect restaurant-style crimson red to gravies. Highly recommended." }
+      { author: "Aarav K. (Mumbai)", rating: 5, text: "Excellent heat level and brilliant red color! Truly export quality." },
+      { author: "Elen W. (Chicago)", rating: 4, text: "A small pinch is enough to heat up the whole curry. Fresh and potent." }
     ]
   },
   {
-    id: "turmeric",
-    name: "Golden Turmeric Powder",
+    id: "turmeric_powder",
+    name: "Turmeric Powder",
     category: "Ground Spices",
     categoryKey: "ground",
     origin: "Sangli, Maharashtra, India",
-    description: "Our single-origin Salem turmeric is famous for its exceptionally high curcumin content (above 5%), offering powerful anti-inflammatory benefits and a deep, golden yellow hue.",
-    aroma: "Earthy, woody, with clean ginger-like freshness.",
-    tasteProfile: "Warm, mildly bitter, peppery, with a pleasing musky aftertaste.",
-    usage: "Blend into warm milk with black pepper and honey, whisk into coconut curries, or dust over roasted vegetables.",
-    basePriceUSD: 7.00,
-    rating: 4.95,
-    reviewCount: 310,
+    description: "Famous for its vibrant golden color and exceptionally high curcumin content, our Salem turmeric is stone-ground to preserve its powerful wellness and culinary properties.",
+    aroma: "Earthy, woody, and warm with a hint of ginger.",
+    tasteProfile: "Peppery, mildly bitter, and warm with an aromatic finish.",
+    usage: "Whisk into warm milk for golden tea, stir into lentil soups, or sprinkle over roasted potatoes.",
+    basePriceUSD: 6.80,
+    rating: 4.9,
+    reviewCount: 195,
     image: "assets/turmeric.jpg",
     weights: [
       { name: "50g", multiplier: 0.6 },
@@ -70,23 +46,23 @@ const products = [
       { name: "250g", multiplier: 2.2 }
     ],
     reviews: [
-      { author: "Sarah P. (San Francisco, USA)", rating: 5, text: "This turmeric is incredibly vibrant. The curcumin percentage must be really high because the taste is so potent. Perfect for my daily golden milk." },
-      { author: "Yuki T. (Tokyo, Japan)", rating: 5, text: "Such a beautiful yellow color. Extremely clean taste. The packaging is also very lovely." }
+      { author: "Ananya S. (Delhi)", rating: 5, text: "This has a very deep yellow color, not like regular supermarket turmeric. Highly recommend!" },
+      { author: "Hans M. (Munich)", rating: 5, text: "Very fresh aroma. The high curcumin level really shows in the rich golden color." }
     ]
   },
   {
     id: "garam_masala",
-    name: "Royal Garam Masala",
-    category: "Aromatic Blends",
+    name: "Garam Masala",
+    category: "Signature Blends",
     categoryKey: "blends",
-    origin: "Old Delhi Heritage Hub, India",
-    description: "A heritage family recipe blending 15 spices including cinnamon, mace, nutmeg, and black cardamom. Slow-roasted in small batches and stone-ground to preserve volatile oils.",
-    aroma: "Intensely sweet-spicy, warm, and highly fragrant.",
-    tasteProfile: "Deeply complex, sweet, peppery, with an exquisite warming depth and no harsh heat.",
-    usage: "Best sprinkled as a finishing spice in the final 5 minutes of cooking to preserve its delicate aromas.",
-    basePriceUSD: 10.00,
+    origin: "Old Delhi, India",
+    description: "A royal family blend of 15 aromatic spices, including cinnamon, mace, nutmeg, and black cardamom, slow-roasted and ground to add a warm finish to your dishes.",
+    aroma: "Intensely sweet-spicy, aromatic, and warming.",
+    tasteProfile: "Complex, sweet-savory, and deeply peppery without sharp chili heat.",
+    usage: "Sprinkle a pinch over curries, stews, or roasted meats in the final 5 minutes of cooking.",
+    basePriceUSD: 9.50,
     rating: 4.9,
-    reviewCount: 189,
+    reviewCount: 220,
     image: "assets/garam_masala.jpg",
     weights: [
       { name: "50g", multiplier: 0.6 },
@@ -94,23 +70,23 @@ const products = [
       { name: "250g", multiplier: 2.2 }
     ],
     reviews: [
-      { author: "David K. (Berlin, Germany)", rating: 5, text: "I have tried many store-bought garam masalas but this one is completely different. The cinnamon and mace really shine through. Smells like heaven." },
-      { author: "Priya S. (Sydney, Australia)", rating: 5, text: "Tastes like the garam masala my grandmother used to grind at home. Homely, rich, and full of nostalgia." }
+      { author: "Rohan P. (Nagpur)", rating: 5, text: "The perfect finish for my curries. The mace and cinnamon fragrance is beautiful." },
+      { author: "Emily T. (London)", rating: 5, text: "Extremely aromatic. Best garam masala I have purchased online." }
     ]
   },
   {
-    id: "biryani_blend",
-    name: "Deccan Biryani Masala",
-    category: "Aromatic Blends",
+    id: "goda_masala",
+    name: "Nagpur Goda Masala",
+    category: "Signature Blends",
     categoryKey: "blends",
-    origin: "Hyderabad Deccan, India",
-    description: "An authentic Nizami blend featuring shahi jeera, star anise, stone flower, rose petals, and premium saffron. Perfectly balanced for replicating the royal biryanis of Hyderabad.",
-    aroma: "Floral, pungent, regal, with notes of rose, mint, and toasted spices.",
-    tasteProfile: "Bold, herbaceous, aromatic, with a sophisticated, lingering savory warmth.",
-    usage: "Layer directly into meat marinades or sprinkle over basmati rice during the steam-cooking (dum) process.",
-    basePriceUSD: 11.50,
-    rating: 4.85,
-    reviewCount: 165,
+    origin: "Nagpur, Maharashtra, India",
+    description: "A traditional Maharashtrian sweet-stone blend using dry coconut, sesame seeds, stone flower (dagad phool), and niger seeds. Essential for authentic Nagpur curries.",
+    aroma: "Toasted, nutty, deeply earthy, and aromatic.",
+    tasteProfile: "Mildly sweet, savory, and rich with toasted coconut and stone flower notes.",
+    usage: "Add to traditional Maharashtrian amti, kala vatana curries, or dry potato masales.",
+    basePriceUSD: 10.50,
+    rating: 4.95,
+    reviewCount: 155,
     image: "assets/biryani_blend.jpg",
     weights: [
       { name: "50g", multiplier: 0.6 },
@@ -118,30 +94,152 @@ const products = [
       { name: "250g", multiplier: 2.2 }
     ],
     reviews: [
-      { author: "Ahmad F. (Dubai, UAE)", rating: 5, text: "Made chicken biryani with this and my family was blown away. The balance of star anise and floral rose petals is spot on." },
-      { author: "Clara G. (Melbourne, Australia)", rating: 5, text: "Takes all the guesswork out of making biryani. The flavor is incredibly layered and rich." }
+      { author: "Meena G. (Nagpur)", rating: 5, text: "Finally an authentic goda masala online! It has the perfect dry coconut and stone flower balance." },
+      { author: "Vijay D. (Pune)", rating: 5, text: "Reminds me of my mother's homemade masala. Essential for Maharashtrian cooking." }
     ]
   },
   {
-    id: "gift_box",
-    name: "Royal Spice Chest",
-    category: "Gift Curations",
-    categoryKey: "gifts",
-    origin: "Pan-India Sourcing, Crafted in Rajasthan",
-    description: "A gorgeous, hand-carved mango wood chest with brass fixtures and brass-embossed floral details. Open it to discover 6 premium glass jars filled with our signature single-origin spices and blends.",
-    aroma: "An enchanting, complex bouquet of India's finest spice heritage.",
-    tasteProfile: "A curated tour of India's spice routes: includes cardamom, turmeric, Kashmiri chili, garam masala, cumin seeds, and cloves.",
-    usage: "The ultimate gift for culinary enthusiasts, global food lovers, or a premium centerpiece for your own kitchen counter.",
-    basePriceUSD: 48.00,
-    rating: 5.0,
-    reviewCount: 92,
-    image: "assets/gift_box.jpg",
+    id: "saoji_masala",
+    name: "Saoji Masala",
+    category: "Signature Blends",
+    categoryKey: "blends",
+    origin: "Nagpur, Maharashtra, India",
+    description: "Our signature Nagpur Saoji spice mix is crafted for the legendary, extremely spicy Saoji cuisine. A fiery blend of 24 spices that packs an authentic punch of flavor.",
+    aroma: "Richly aromatic, pungent, heavily toasted, and spicy.",
+    tasteProfile: "Robust, intensely hot, and complex with strong clove, black pepper, and stone flower notes.",
+    usage: "The heart of Nagpur's famous Saoji mutton, chicken, or vegetarian curries.",
+    basePriceUSD: 11.00,
+    rating: 4.9,
+    reviewCount: 180,
+    image: "assets/hero_spices.jpg",
     weights: [
-      { name: "1 Chest", multiplier: 1.0 }
+      { name: "50g", multiplier: 0.6 },
+      { name: "100g", multiplier: 1.0 },
+      { name: "250g", multiplier: 2.2 }
     ],
     reviews: [
-      { author: "Sophia V. (New York, USA)", rating: 5, text: "Bought this as a wedding gift and it was the highlight of the registry! The box is beautiful enough to keep on display forever." },
-      { author: "Arjun R. (Singapore)", rating: 5, text: "Stunning craftsmanship. The wood smells beautiful and the spice quality is premium. Definitely buying another for myself." }
+      { author: "Devendra S. (Nagpur)", rating: 5, text: "Extremely fiery and authentic! The real taste of Nagpur Saoji cuisine." },
+      { author: "Sunita W. (Mumbai)", rating: 5, text: "Beautifully spice-heavy and hot. Ideal for a proper spicy chicken curry." }
+    ]
+  },
+  {
+    id: "bay_leaf",
+    name: "Bay Leaf",
+    category: "Whole Spices",
+    categoryKey: "whole",
+    origin: "Himalayan Foothills, India",
+    description: "Aromatic tejpatta (Indian bay leaves) harvested from mountain forests. They offer a more herbal, cinnamon-like flavor compared to European bay leaves.",
+    aroma: "Sweet, clove-like, and reminiscent of warm cinnamon bark.",
+    tasteProfile: "Herbal, delicate, with sweet woody undertones.",
+    usage: "Drop whole leaves into warm oil before tempering, or simmer in basmati rice, biryanis, and lentil curries.",
+    basePriceUSD: 5.50,
+    rating: 4.75,
+    reviewCount: 88,
+    image: "assets/heritage.jpg",
+    weights: [
+      { name: "50g", multiplier: 0.6 },
+      { name: "100g", multiplier: 1.0 },
+      { name: "250g", multiplier: 2.2 }
+    ],
+    reviews: [
+      { author: "Jean L. (Paris)", rating: 5, text: "Much more fragrant and cinnamon-like than bay laurel leaves. Excellent." },
+      { author: "Sanjay R. (Nagpur)", rating: 4, text: "Clean, fresh whole leaves. Perfect for biryani seasoning." }
+    ]
+  },
+  {
+    id: "whole_red_chilli",
+    name: "Whole Red Chilli 🌶️",
+    category: "Whole Spices",
+    categoryKey: "whole",
+    origin: "Nagpur Region, Maharashtra, India",
+    description: "Premium sun-dried whole red chilies with stems. They release an authentic, beautiful heat when toasted in hot oil or tempered.",
+    aroma: "Sharp, pungent, and sun-toasted.",
+    tasteProfile: "Bold, intense heat with a clean, sharp finish.",
+    usage: "Use whole in tempering (tadka) for dals, dry vegetable stir-fries, or grind into fresh chili pastes.",
+    basePriceUSD: 8.00,
+    rating: 4.85,
+    reviewCount: 112,
+    image: "assets/chili.jpg",
+    weights: [
+      { name: "50g", multiplier: 0.6 },
+      { name: "100g", multiplier: 1.0 },
+      { name: "250g", multiplier: 2.2 }
+    ],
+    reviews: [
+      { author: "Kunal M. (Nagpur)", rating: 5, text: "Beautifully sun-dried with great heat. Excellent for tempering tadka." },
+      { author: "Sarah B. (Sydney)", rating: 5, text: "Very fresh and fiery red. Adds a great look to my tempered dals." }
+    ]
+  },
+  {
+    id: "cardamom_pods",
+    name: "Cardamom Pods",
+    category: "Whole Spices",
+    categoryKey: "whole",
+    origin: "Idukki, Kerala, India",
+    description: "Plump, premium green cardamom pods hand-picked at peak oil content. Known for its intense fragrance and therapeutic sweet-spicy notes.",
+    aroma: "Deeply herbal, sweet, and floral with clean eucalyptus notes.",
+    tasteProfile: "Citrusy, warm, sweet, and highly aromatic.",
+    usage: "Lightly crush pods to release seeds for chai, rice pudding (kheer), or slow-cooked meat dishes.",
+    basePriceUSD: 13.50,
+    rating: 4.95,
+    reviewCount: 167,
+    image: "assets/cardamom.jpg",
+    weights: [
+      { name: "50g", multiplier: 0.6 },
+      { name: "100g", multiplier: 1.0 },
+      { name: "250g", multiplier: 2.2 }
+    ],
+    reviews: [
+      { author: "Kofi A. (Accra)", rating: 5, text: "The green pods are plump and full of seeds. Very rich aroma in my tea." },
+      { author: "Priya V. (Bangalore)", rating: 5, text: "Incredibly sweet and fragrant. The quality is top notch." }
+    ]
+  },
+  {
+    id: "black_pepper",
+    name: "Black Pepper",
+    category: "Whole Spices",
+    categoryKey: "whole",
+    origin: "Malabar Coast, Kerala, India",
+    description: "Malabar Tellicherry black peppercorns, left on the vine longer to grow large and develop deep, complex essential oils and a sharp bite.",
+    aroma: "Pungent, woodsy, and intensely warm.",
+    tasteProfile: "Crisp, bold peppery heat with complex citrus and pine undertones.",
+    usage: "Crush fresh over steaks, eggs, creamy pasta, or toss whole peppercorns into hot pots and curries.",
+    basePriceUSD: 8.20,
+    rating: 4.9,
+    reviewCount: 144,
+    image: "assets/hero_spices.jpg",
+    weights: [
+      { name: "50g", multiplier: 0.6 },
+      { name: "100g", multiplier: 1.0 },
+      { name: "250g", multiplier: 2.2 }
+    ],
+    reviews: [
+      { author: "David G. (New York)", rating: 5, text: "Tellicherry pepper at its best. Great fruity heat and woody spice." },
+      { author: "Milos H. (Prague)", rating: 5, text: "Very fresh bite when crushed. Much better than pre-ground pepper." }
+    ]
+  },
+  {
+    id: "cloves",
+    name: "Cloves",
+    category: "Whole Spices",
+    categoryKey: "whole",
+    origin: "Kanyakumari, Tamil Nadu, India",
+    description: "Hand-selected, fully formed whole cloves with heads intact. They are rich in eugenol oil, providing a powerful aromatic and therapeutic punch.",
+    aroma: "Intensely warm, sweet, woody, and pungent.",
+    tasteProfile: "Deeply sweet, hot, and slightly numbing with rich woody depth.",
+    usage: "Stud into roasted meats, infuse whole cloves in hot cider or chai, or include in biryani rice water.",
+    basePriceUSD: 9.00,
+    rating: 4.8,
+    reviewCount: 98,
+    image: "assets/gift_box.jpg",
+    weights: [
+      { name: "50g", multiplier: 0.6 },
+      { name: "100g", multiplier: 1.0 },
+      { name: "250g", multiplier: 2.2 }
+    ],
+    reviews: [
+      { author: "Nisha J. (Kolkata)", rating: 5, text: "Large whole cloves with full heads. Very strong eugenol aroma." },
+      { author: "Tom S. (Denver)", rating: 5, text: "Highly aromatic. Essential for baking and spice tea blends." }
     ]
   }
 ];
