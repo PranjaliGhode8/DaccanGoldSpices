@@ -1555,3 +1555,10 @@ footer {
   border: 1px solid var(--color-border);
   padding: 3rem;
 }
+
+@media (max-width: 600px) {
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}
