@@ -1562,3 +1562,26 @@ footer {
     gap: 0;
   }
 }
+
+/* --- WhatsApp Floating Button in Header --- */
+.whatsapp-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #25D366; /* WhatsApp Green */
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s;
+  padding: 0.3rem;
+  border-radius: 50%;
+  background-color: transparent;
+}
+
+.whatsapp-btn:hover {
+  color: #20BA56;
+  transform: scale(1.18);
+}
+
+.whatsapp-btn svg {
+  width: 1.8rem;
+  height: 1.8rem;
+  fill: currentColor;
+}
