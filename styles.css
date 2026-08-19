@@ -129,12 +129,12 @@ header.scrolled {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 6.8rem;
+  height: 8.5rem;
   transition: var(--transition);
 }
 
 header.scrolled .header-container {
-  height: 5.2rem;
+  height: 6.0rem;
 }
 
 .logo-wrapper {
@@ -144,7 +144,7 @@ header.scrolled .header-container {
 }
 
 .logo-image {
-  height: 5.2rem;
+  height: 7.0rem;
   width: auto;
   display: block;
   image-rendering: -webkit-optimize-contrast;
@@ -152,7 +152,14 @@ header.scrolled .header-container {
 }
 
 header.scrolled .logo-image {
-  height: 4.0rem;
+  height: 5.0rem;
+}
+
+@media (min-width: 901px) {
+  nav {
+    margin-left: auto;
+    margin-right: 3.5rem;
+  }
 }
 
 nav ul {
@@ -237,7 +244,7 @@ nav a:hover::after, nav a.active::after {
   nav {
     display: block;
     position: fixed;
-    top: 6.8rem; /* below header */
+    top: 8.5rem; /* below header */
     left: 0;
     width: 100%;
     background-color: rgba(23, 23, 23, 0.98);
@@ -249,7 +256,7 @@ nav a:hover::after, nav a.active::after {
   }
 
   header.scrolled nav {
-    top: 5.2rem;
+    top: 6.0rem;
   }
 
   nav.active {
@@ -1512,21 +1519,21 @@ footer {
 
 @media (max-width: 600px) {
   .header-container {
-    height: 5.4rem;
+    height: 6.5rem;
   }
   header.scrolled .header-container {
-    height: 4.6rem;
+    height: 5.2rem;
   }
   .logo-image {
-    height: 4.0rem;
+    height: 5.2rem;
   }
   header.scrolled .logo-image {
-    height: 3.4rem;
+    height: 4.2rem;
   }
   nav {
-    top: 5.4rem;
+    top: 6.5rem;
   }
   header.scrolled nav {
-    top: 4.6rem;
+    top: 5.2rem;
   }
 }
