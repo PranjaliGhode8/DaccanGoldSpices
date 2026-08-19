@@ -129,12 +129,12 @@ header.scrolled {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 8.5rem;
+  height: 11.0rem;
   transition: var(--transition);
 }
 
 header.scrolled .header-container {
-  height: 6.0rem;
+  height: 7.5rem;
 }
 
 .logo-wrapper {
@@ -144,7 +144,7 @@ header.scrolled .header-container {
 }
 
 .logo-image {
-  height: 7.0rem;
+  height: 9.5rem;
   width: auto;
   display: block;
   image-rendering: -webkit-optimize-contrast;
@@ -152,25 +152,8 @@ header.scrolled .header-container {
 }
 
 header.scrolled .logo-image {
-  height: 5.0rem;
+  height: 6.2rem;
 }
-
-.logo-text {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--color-ivory);
-  letter-spacing: 0.03em;
-  margin-left: 1.2rem;
-  transition: var(--transition);
-  white-space: nowrap;
-}
-
-header.scrolled .logo-text {
-  font-size: 1.35rem;
-}
-
 
 @media (min-width: 901px) {
   nav {
@@ -261,7 +244,7 @@ nav a:hover::after, nav a.active::after {
   nav {
     display: block;
     position: fixed;
-    top: 8.5rem; /* below header */
+    top: 11.0rem; /* below header */
     left: 0;
     width: 100%;
     background-color: rgba(23, 23, 23, 0.98);
@@ -273,7 +256,7 @@ nav a:hover::after, nav a.active::after {
   }
 
   header.scrolled nav {
-    top: 6.0rem;
+    top: 7.5rem;
   }
 
   nav.active {
@@ -1536,28 +1519,21 @@ footer {
 
 @media (max-width: 600px) {
   .header-container {
-    height: 6.5rem;
+    height: 8.5rem;
   }
   header.scrolled .header-container {
-    height: 5.2rem;
+    height: 6.0rem;
   }
   .logo-image {
-    height: 5.2rem;
+    height: 7.0rem;
   }
   header.scrolled .logo-image {
-    height: 4.2rem;
-  }
-  .logo-text {
-    font-size: 1.25rem;
-    margin-left: 0.6rem;
-  }
-  header.scrolled .logo-text {
-    font-size: 1.05rem;
+    height: 5.0rem;
   }
   nav {
-    top: 6.5rem;
+    top: 8.5rem;
   }
   header.scrolled nav {
-    top: 5.2rem;
+    top: 6.0rem;
   }
 }
