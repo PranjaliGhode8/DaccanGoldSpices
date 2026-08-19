@@ -155,6 +155,23 @@ header.scrolled .logo-image {
   height: 5.0rem;
 }
 
+.logo-text {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--color-ivory);
+  letter-spacing: 0.03em;
+  margin-left: 1.2rem;
+  transition: var(--transition);
+  white-space: nowrap;
+}
+
+header.scrolled .logo-text {
+  font-size: 1.35rem;
+}
+
+
 @media (min-width: 901px) {
   nav {
     margin-left: auto;
@@ -1529,6 +1546,13 @@ footer {
   }
   header.scrolled .logo-image {
     height: 4.2rem;
+  }
+  .logo-text {
+    font-size: 1.25rem;
+    margin-left: 0.6rem;
+  }
+  header.scrolled .logo-text {
+    font-size: 1.05rem;
   }
   nav {
     top: 6.5rem;
