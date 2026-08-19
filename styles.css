@@ -129,12 +129,12 @@ header.scrolled {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 5.8rem;
+  height: 6.8rem;
   transition: var(--transition);
 }
 
 header.scrolled .header-container {
-  height: 4.8rem;
+  height: 5.2rem;
 }
 
 .logo-wrapper {
@@ -144,14 +144,15 @@ header.scrolled .header-container {
 }
 
 .logo-image {
-  height: 4.2rem;
+  height: 5.2rem;
   width: auto;
   display: block;
+  image-rendering: -webkit-optimize-contrast;
   transition: var(--transition);
 }
 
 header.scrolled .logo-image {
-  height: 3.5rem;
+  height: 4.0rem;
 }
 
 nav ul {

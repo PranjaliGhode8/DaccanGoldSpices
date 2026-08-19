@@ -375,15 +375,7 @@ function switchView(viewId) {
     }
   });
 
-  // Hide/Show Currency Selector (hide on Home page)
-  const currencySelect = document.getElementById("currency-select");
-  if (currencySelect) {
-    if (viewId === "home") {
-      currencySelect.style.display = "none";
-    } else {
-      currencySelect.style.display = "block";
-    }
-  }
+
 
 
 
