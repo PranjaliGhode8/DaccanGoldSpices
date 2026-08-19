@@ -1442,58 +1442,70 @@ footer {
   fill: currentColor;
 }
 
-/* --- Story Features Grid Cards --- */
-.story-features-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 2rem;
-  max-width: 1100px;
+/* --- Story Features Row Points List --- */
+.story-points-list {
+  max-width: 900px;
   margin: 5rem auto 2rem auto;
-  padding-top: 3.5rem;
+  padding-top: 2rem;
   border-top: 1px solid rgba(197, 168, 128, 0.25);
 }
 
-.story-card-item {
-  background-color: var(--color-white);
-  border: 1px solid rgba(197, 168, 128, 0.25);
-  border-top: 4px solid #8c6239;
-  padding: 2.2rem 1.8rem;
+.story-point-row {
+  display: grid;
+  grid-template-columns: 80px 220px 1fr;
+  gap: 1.5rem;
+  align-items: baseline;
+  padding: 1.8rem 0;
+  border-bottom: 1px solid rgba(197, 168, 128, 0.2);
   text-align: left;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+  transition: background-color 0.3s ease, padding-left 0.3s ease;
 }
 
-.story-card-item:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 30px rgba(197, 168, 128, 0.14);
-  border-color: rgba(197, 168, 128, 0.5);
+.story-point-row:hover {
+  background-color: rgba(197, 168, 128, 0.04);
+  padding-left: 1rem;
 }
 
-.story-card-num {
+.story-point-row:last-child {
+  border-bottom: none;
+}
+
+.story-point-num {
   font-family: var(--font-serif);
   font-style: italic;
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   color: #c5a880;
-  margin-bottom: 1rem;
-  font-weight: 600;
-  display: block;
+  font-weight: 500;
+  line-height: 1;
 }
 
-.story-card-title {
+.story-point-title {
   font-family: var(--font-serif);
   font-style: italic;
   font-weight: 600;
-  font-size: 1.45rem;
+  font-size: 1.35rem;
   color: var(--color-charcoal);
-  margin-bottom: 0.8rem;
+  margin: 0;
   letter-spacing: -0.01em;
+  line-height: 1.2;
 }
 
-.story-card-text {
+.story-point-text {
   font-family: var(--font-sans);
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   line-height: 1.6;
   color: #6c665e;
   font-weight: 300;
   margin: 0;
+}
+
+@media (max-width: 768px) {
+  .story-point-row {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    padding: 1.5rem 0;
+  }
+  .story-point-row:hover {
+    padding-left: 0.5rem;
+  }
 }
