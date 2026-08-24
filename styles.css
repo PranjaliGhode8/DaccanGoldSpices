@@ -1,26 +1,26 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Outfit:wght@300;400;500;600;700&display=swap');
 
 /* --- Design Tokens --- */
 :root {
-  --color-saffron: #E07A5F;
-  --color-turmeric: #EAA83A;
-  --color-deep-red: #7C1D1D;
-  --color-cinnamon: #6F4E37;
-  --color-gold: #C5A880;
-  --color-gold-bright: #D4AF37;
-  --color-ivory: #FAF6F0;
-  --color-ivory-dark: #F3EAE0;
-  --color-charcoal: #232323;
-  --color-white: #FFFFFF;
-  --color-border: rgba(197, 168, 128, 0.25);
+  --color-saffron: #EAA83A;       /* Warm Accent Gold */
+  --color-turmeric: #FFD700;      /* Bright Gold (WhatsApp / Focus Highlights) */
+  --color-deep-red: #8c6239;      /* Dark Cinnamon Gold */
+  --color-cinnamon: #C5A880;      /* Accents / Borders */
+  --color-gold: #C5A880;          /* Brand Muted Gold */
+  --color-gold-bright: #FFD700;   /* WhatsApp Bright Gold */
+  --color-ivory: #FAF6F0;         /* Premium Off-White Text */
+  --color-ivory-dark: #A5A29B;    /* Muted text description */
+  --color-charcoal: #0B0B0B;      /* Sophisticated Black Base background */
+  --color-white: #161616;         /* Sophisticated container background */
+  --color-border: rgba(197, 168, 128, 0.2);
   
-  --font-serif: 'Playfair Display', Georgia, serif;
-  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-serif: 'Cinzel', serif;
+  --font-sans: 'Outfit', sans-serif;
   
   --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  --shadow-sm: 0 2px 8px rgba(35, 35, 35, 0.04);
-  --shadow-md: 0 8px 30px rgba(35, 35, 35, 0.08);
-  --shadow-lg: 0 16px 40px rgba(35, 35, 35, 0.12);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.6);
+  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.8);
 }
 
 /* --- Base & Reset --- */
@@ -32,8 +32,8 @@
 
 body {
   font-family: var(--font-sans);
-  background-color: var(--color-ivory);
-  color: var(--color-charcoal);
+  background-color: var(--color-charcoal);
+  color: var(--color-ivory);
   line-height: 1.6;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
@@ -43,6 +43,7 @@ h1, h2, h3, h4, .serif-font {
   font-family: var(--font-serif);
   font-weight: 600;
   letter-spacing: 0.02em;
+  color: var(--color-gold);
 }
 
 a {
@@ -164,16 +165,18 @@ header.scrolled .logo-image {
 
 nav ul {
   display: flex;
+  align-items: center;
   gap: 2.5rem;
 }
 
 nav a {
-  font-size: 0.9rem;
-  font-weight: 500;
-  letter-spacing: 0.05em;
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--color-ivory);
-  opacity: 0.85;
+  color: var(--color-gold);
+  opacity: 0.9;
   position: relative;
   padding: 0.5rem 0;
 }
@@ -192,6 +195,30 @@ nav a::after {
 nav a:hover, nav a.active {
   opacity: 1;
   color: var(--color-turmeric);
+}
+
+.nav-whatsapp-link {
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-turmeric) !important;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: var(--transition);
+}
+
+.nav-whatsapp-link svg {
+  width: 1.2rem;
+  height: 1.2rem;
+  fill: currentColor;
+}
+
+.nav-whatsapp-link:hover {
+  color: var(--color-gold-bright) !important;
+  transform: scale(1.05);
 }
 
 nav a:hover::after, nav a.active::after {
@@ -348,7 +375,7 @@ nav a:hover::after, nav a.active::after {
   width: 100%;
   height: 100%;
   z-index: 2;
-  background: linear-gradient(to left, rgba(23, 23, 23, 0.85) 30%, rgba(23, 23, 23, 0.3) 100%);
+  background: linear-gradient(to right, rgba(23, 23, 23, 0.85) 30%, rgba(23, 23, 23, 0.3) 100%);
 }
 
 .hero-content {
@@ -400,39 +427,40 @@ nav a:hover::after, nav a.active::after {
 }
 
 .btn-primary {
-  background-color: var(--color-deep-red);
-  color: var(--color-white);
-  border: 1px solid var(--color-deep-red);
+  background-color: var(--color-gold);
+  color: var(--color-charcoal);
+  border: 1px solid var(--color-gold);
+  font-weight: 700;
 }
 
 .btn-primary:hover {
   background-color: transparent;
-  color: var(--color-white);
-  border-color: var(--color-white);
+  color: var(--color-gold);
+  border-color: var(--color-gold);
 }
 
 .btn-secondary {
   background-color: transparent;
-  color: var(--color-white);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: var(--color-ivory);
+  border: 1px solid rgba(197, 168, 128, 0.4);
   margin-left: 1rem;
 }
 
 .btn-secondary:hover {
-  border-color: var(--color-gold);
-  color: var(--color-gold);
+  border-color: var(--color-turmeric);
+  color: var(--color-turmeric);
 }
 
 .btn-dark {
-  background-color: var(--color-charcoal);
-  color: var(--color-white);
-  border: 1px solid var(--color-charcoal);
+  background-color: var(--color-white);
+  color: var(--color-gold);
+  border: 1px solid var(--color-gold);
 }
 
 .btn-dark:hover {
-  background-color: transparent;
+  background-color: var(--color-gold);
   color: var(--color-charcoal);
-  border-color: var(--color-charcoal);
+  border-color: var(--color-gold);
 }
 
 @media (max-width: 768px) {
@@ -539,14 +567,14 @@ nav a:hover::after, nav a.active::after {
   border: 1px solid var(--color-border);
   border-radius: 30px;
   background-color: var(--color-white);
-  color: var(--color-charcoal);
+  color: var(--color-ivory);
   transition: var(--transition);
 }
 
 .tab-btn.active, .tab-btn:hover {
-  background-color: var(--color-deep-red);
-  color: var(--color-white);
-  border-color: var(--color-deep-red);
+  background-color: var(--color-gold);
+  color: var(--color-charcoal);
+  border-color: var(--color-gold);
 }
 
 .products-grid {
@@ -576,7 +604,7 @@ nav a:hover::after, nav a.active::after {
 .product-img-wrapper {
   position: relative;
   overflow: hidden;
-  background-color: var(--color-ivory);
+  background-color: #121212;
   margin-bottom: 1.2rem;
   aspect-ratio: 1;
 }
@@ -627,7 +655,7 @@ nav a:hover::after, nav a.active::after {
 
 .action-btn {
   background-color: var(--color-white);
-  color: var(--color-charcoal);
+  color: var(--color-ivory);
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 50%;
@@ -639,8 +667,8 @@ nav a:hover::after, nav a.active::after {
 }
 
 .action-btn:hover {
-  background-color: var(--color-deep-red);
-  color: var(--color-white);
+  background-color: var(--color-gold);
+  color: var(--color-charcoal);
 }
 
 .action-btn svg {
@@ -666,13 +694,13 @@ nav a:hover::after, nav a.active::after {
 
 .product-title {
   font-size: 1.3rem;
-  color: var(--color-charcoal);
+  color: var(--color-ivory);
   margin-bottom: 0.5rem;
   cursor: pointer;
 }
 
 .product-title:hover {
-  color: var(--color-deep-red);
+  color: var(--color-turmeric);
 }
 
 
@@ -690,7 +718,7 @@ nav a:hover::after, nav a.active::after {
   font-family: var(--font-serif);
   font-size: 1.2rem;
   font-weight: 700;
-  color: var(--color-deep-red);
+  color: var(--color-gold);
 }
 
 .quick-add-btn {
@@ -698,15 +726,15 @@ nav a:hover::after, nav a.active::after {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: var(--color-charcoal);
+  color: var(--color-ivory);
   border-bottom: 1.5px solid var(--color-gold);
   padding-bottom: 0.1rem;
   transition: var(--transition);
 }
 
 .quick-add-btn:hover {
-  color: var(--color-deep-red);
-  border-color: var(--color-deep-red);
+  color: var(--color-turmeric);
+  border-color: var(--color-turmeric);
 }
 
 /* --- Brand Story Section --- */
@@ -1034,7 +1062,7 @@ footer {
   top: 1.5rem;
   right: 1.5rem;
   font-size: 1.8rem;
-  color: var(--color-charcoal);
+  color: var(--color-gold);
   z-index: 10;
   width: 2rem;
   height: 2rem;
@@ -1042,14 +1070,14 @@ footer {
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: var(--color-white);
   box-shadow: var(--shadow-sm);
   transition: var(--transition);
 }
 
 .close-modal-btn:hover {
-  background-color: var(--color-deep-red);
-  color: var(--color-white);
+  background-color: var(--color-gold);
+  color: var(--color-charcoal);
 }
 
 .modal-grid {
@@ -1059,7 +1087,7 @@ footer {
 
 .modal-img-col {
   position: relative;
-  background-color: var(--color-ivory);
+  background-color: #121212;
   aspect-ratio: 1;
 }
 
@@ -1086,14 +1114,14 @@ footer {
 
 .modal-title {
   font-size: 2.2rem;
-  color: var(--color-deep-red);
+  color: var(--color-gold);
   margin-bottom: 0.5rem;
 }
 
 .modal-origin {
   font-size: 0.85rem;
   font-style: italic;
-  color: #666;
+  color: var(--color-ivory-dark);
   margin-bottom: 1rem;
 }
 
@@ -1106,7 +1134,7 @@ footer {
 }
 
 .modal-description {
-  color: #555;
+  color: var(--color-ivory-dark);
   font-size: 0.95rem;
   line-height: 1.6;
   margin-bottom: 1.5rem;
@@ -1114,7 +1142,7 @@ footer {
 }
 
 .modal-meta-section {
-  background-color: var(--color-ivory);
+  background-color: #1a1a1a;
   padding: 1.2rem;
   border-left: 3px solid var(--color-gold);
   margin-bottom: 1.5rem;
@@ -1132,7 +1160,7 @@ footer {
 .modal-meta-item strong {
   text-transform: uppercase;
   font-size: 0.75rem;
-  color: var(--color-cinnamon);
+  color: var(--color-gold);
 }
 
 .quantity-option-row {
@@ -1144,7 +1172,7 @@ footer {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: var(--color-charcoal);
+  color: var(--color-ivory);
   margin-bottom: 0.6rem;
 }
 
@@ -1159,13 +1187,14 @@ footer {
   font-weight: 600;
   border: 1px solid var(--color-border);
   background-color: var(--color-white);
+  color: var(--color-ivory);
   transition: var(--transition);
 }
 
 .weight-btn.active, .weight-btn:hover {
-  border-color: var(--color-deep-red);
-  background-color: var(--color-ivory);
-  color: var(--color-deep-red);
+  border-color: var(--color-gold);
+  background-color: var(--color-gold);
+  color: var(--color-charcoal);
 }
 
 .modal-actions-row {
@@ -1308,16 +1337,14 @@ footer {
 
 .form-group {
   margin-bottom: 1.2rem;
-}
-
-.form-group label {
+}.form-group label {
   display: block;
   font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   margin-bottom: 0.4rem;
-  color: var(--color-charcoal);
+  color: var(--color-ivory);
 }
 
 .form-control {
@@ -1325,13 +1352,14 @@ footer {
   padding: 0.8rem 1rem;
   font-size: 0.9rem;
   border: 1px solid var(--color-border);
-  background-color: var(--color-ivory);
+  background-color: #1a1a1a;
+  color: var(--color-ivory);
   transition: var(--transition);
 }
 
 .form-control:focus {
-  border-color: var(--color-deep-red);
-  background-color: var(--color-white);
+  border-color: var(--color-gold);
+  background-color: #222222;
 }
 
 .form-row {
@@ -1345,9 +1373,12 @@ footer {
 /* --- Contact Us Page --- */
 .contact-grid {
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
+  grid-template-columns: 1fr;
   gap: 3.5rem;
   margin-top: 2rem;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 @media (max-width: 900px) {
@@ -1361,12 +1392,12 @@ footer {
   background-color: var(--color-white);
   border: 1px solid var(--color-border);
   padding: 3rem;
-  border-left: 4px solid var(--color-deep-red);
+  border-left: 4px solid var(--color-gold);
 }
 
 .contact-info h3 {
   font-size: 1.8rem;
-  color: var(--color-deep-red);
+  color: var(--color-gold);
   margin-bottom: 1rem;
 }
 
@@ -1535,5 +1566,52 @@ footer {
   }
   header.scrolled nav {
     top: 6.0rem;
+  }
+}
+
+/* --- Certifications Bar (above footer) --- */
+.certifications-bar {
+  background-color: var(--color-white);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  padding: 2.5rem 0;
+  margin-top: 5rem;
+}
+
+.certifications-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.cert-item {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-gold);
+  border: 1px solid var(--color-border);
+  padding: 0.5rem 1.5rem;
+  letter-spacing: 0.05em;
+  background-color: var(--color-charcoal);
+  transition: var(--transition);
+}
+
+.cert-item:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-gold);
+  box-shadow: 0 4px 15px rgba(197, 168, 128, 0.15);
+}
+
+@media (max-width: 768px) {
+  .certifications-container {
+    justify-content: center;
+    gap: 1.2rem;
+  }
+  .cert-item {
+    font-size: 0.95rem;
+    padding: 0.4rem 1.2rem;
   }
 }
