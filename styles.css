@@ -1785,8 +1785,6 @@ footer {
   width: auto;
   object-fit: contain;
   margin-bottom: 0.8rem;
-  filter: grayscale(1) brightness(1.2) sepia(0.3) hue-rotate(10deg);
-  opacity: 0.85;
   transition: var(--transition);
 }
 
@@ -1800,8 +1798,6 @@ footer {
 }
 
 .cert-item-with-logo:hover .cert-logo-img {
-  filter: none;
-  opacity: 1;
   transform: scale(1.08);
 }
 
