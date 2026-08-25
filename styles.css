@@ -1753,10 +1753,13 @@ footer {
   transition: var(--transition);
 }
 
-.cert-svg {
-  width: 70px;
-  height: 70px;
+.cert-logo-img {
+  height: 55px;
+  width: auto;
+  object-fit: contain;
   margin-bottom: 0.8rem;
+  filter: grayscale(1) brightness(1.2) sepia(0.3) hue-rotate(10deg);
+  opacity: 0.85;
   transition: var(--transition);
 }
 
@@ -1769,8 +1772,10 @@ footer {
   text-transform: uppercase;
 }
 
-.cert-item-with-logo:hover .cert-svg {
-  transform: scale(1.1) rotate(3deg);
+.cert-item-with-logo:hover .cert-logo-img {
+  filter: none;
+  opacity: 1;
+  transform: scale(1.08);
 }
 
 .cert-item-with-logo:hover span {
@@ -1782,9 +1787,8 @@ footer {
     justify-content: center;
     gap: 2.2rem;
   }
-  .cert-svg {
-    width: 55px;
-    height: 55px;
+  .cert-logo-img {
+    height: 42px;
     margin-bottom: 0.5rem;
   }
   .cert-item-with-logo span {
