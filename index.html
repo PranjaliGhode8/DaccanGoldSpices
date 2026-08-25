@@ -33,7 +33,7 @@
           <li>
             <a href="https://wa.me/919665351661" target="_blank" rel="noopener noreferrer" class="nav-whatsapp-link" aria-label="Chat on WhatsApp">
               <svg viewBox="0 0 24 24"><path d="M12.031 2a9.967 9.967 0 0 0-8.583 4.935 9.903 9.903 0 0 0-1.396 6.368 9.966 9.966 0 0 0 4.148 6.721l-.738 2.705 2.775-.726a9.929 9.929 0 0 0 4.8 1.249h.004a9.972 9.972 0 0 0 9.968-9.97C23.012 7.766 18.082 2 12.031 2zm0 18.256a8.217 8.217 0 0 1-4.19-1.144l-.3-.178-1.554.407.414-1.516-.197-.313a8.213 8.213 0 0 1-1.258-4.385 8.219 8.219 0 0 1 8.225-8.225c4.536 0 8.229 3.69 8.229 8.229 0 4.536-3.693 8.225-8.229 8.225zm4.512-6.177c-.247-.123-1.463-.722-1.692-.805-.229-.083-.396-.123-.562.124-.166.248-.644.805-.79 1-.145.195-.292.217-.539.094-.247-.123-1.04-.383-1.98-1.22-.73-.65-1.223-1.455-1.367-1.7-.146-.247-.015-.38.108-.503.111-.11.247-.29.37-.433.123-.146.166-.248.248-.413.082-.166.041-.31-.02-.433-.063-.124-.563-1.36-.772-1.859-.203-.488-.412-.423-.563-.43-.146-.007-.313-.008-.48-.008a.92.92 0 0 0-.666.31c-.229.248-.875.855-.875 2.083 0 1.23.896 2.417 1.02 2.583.125.166 1.763 2.69 4.27 3.774.597.258 1.063.412 1.427.527.6.19 1.146.163 1.579.1.482-.072 1.463-.598 1.67-.178.208-.42.208-.783 0-1.028z"/></svg>
-              Get IN TOUCH
+              WhatsApp
             </a>
           </li>
         </ul>
@@ -55,27 +55,20 @@
 
   <!-- ==================== VIEW: HOME ==================== -->
   <main id="view-home" class="view-section active">
-    <!-- Hero Section -->
-    <section class="hero-section" style="background-image: url('assets/hero_spices.jpg');">
+    <!-- Hero Banner -->
+    <section class="hero">
+      <img src="assets/hero_spices.jpg" alt="Rich Indian spices in brass bowls" class="hero-bg">
       <div class="hero-overlay"></div>
-      <div class="container hero-container">
+      <div class="container" style="height: 100%; display: flex; align-items: center; justify-content: flex-start;">
         <div class="hero-content">
-          <h1>From Indian Roots to Global Kitchens</h1>
-          <p class="hero-subtitle">Bring the Warmth of Authentic India into Your Home</p>
-          <div class="hero-points">
-            <div class="hero-point-item">
-              <span class="hero-point-bullet">•</span>
-              <span>Single-origin spices sourced ethically from historic family estates in Southern and Western India.</span>
-            </div>
-            <div class="hero-point-item">
-              <span class="hero-point-bullet">•</span>
-              <span>Slow-ground, pure, and bursting with therapeutic oils.</span>
-            </div>
-          </div>
-          <div class="hero-cta-group">
-            <a href="#" class="btn btn-primary" data-view="shop">Explore Collection</a>
-            <a href="#" class="btn btn-secondary" data-view="story">Our Origin Story</a>
-          </div>
+          <span class="hero-tag">From Indian Roots to Global Kitchens</span>
+          <h1>Bring the Warmth of Authentic India into Your Home</h1>
+          <p>Single-origin spices sourced ethically from historic family estates in Southern and Western India. Slow-ground, pure, and bursting with therapeutic oils.</p>
+          <button id="hero-shop-cta" class="btn btn-primary">
+            Explore Collection
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </button>
+          <button id="hero-story-cta" class="btn btn-secondary">Our Origin Story</button>
         </div>
       </div>
     </section>
@@ -112,53 +105,32 @@
       </div>
     </section>
 
-    <!-- Featured Spices Section -->
-    <section class="container" style="padding-bottom: 5rem;">
-      <div class="section-title">
-        <span>Curated Selection</span>
-        <h2>Our Signature Harvest</h2>
-        <p>Sourced directly from historic estates, tested for purity, and sealed at origin.</p>
-      </div>
-      <div id="home-featured-grid" class="product-grid">
-        <!-- Dynamically injected via JavaScript -->
-      </div>
-      <div style="text-align: center; margin-top: 3rem;">
-        <a href="#" class="btn btn-secondary" data-view="shop">View Full Catalog &rarr;</a>
-      </div>
-    </section>
 
-    <!-- Heritage Callout Banner -->
-    <section class="heritage-banner" style="background-image: url('assets/heritage.jpg');">
-      <div class="heritage-overlay"></div>
-      <div class="container heritage-content">
-        <h2>Preserving Centuries of Spice Craftsmanship</h2>
-        <p>From the lush Western Ghats to the sun-drenched Deccan plateau, we bring unadulterated spices from smallholder farms directly to master chefs and discerning home cooks worldwide.</p>
-        <a href="#" class="btn btn-primary" data-view="story">Read Our Story</a>
-      </div>
-    </section>
+
+
+
+
   </main>
 
   <!-- ==================== VIEW: SHOP ==================== -->
   <main id="view-shop" class="view-section">
     <section class="container" style="padding-top: 3rem; padding-bottom: 5rem;">
       <div class="section-title">
-        <span>Complete Catalog</span>
-        <h2>Explore Deccan Gold Spices</h2>
-        <p>Discover our single-origin whole spices, stone-ground powders, and authentic heritage masalas.</p>
+        <h2>Our Signature Spices</h2>
+        <p>Filter through our premium whole spices, finely-ground aromatic powders, and signature kitchen blends from our Deccan Bazar.</p>
       </div>
 
-      <!-- Filter Controls -->
-      <div class="catalog-filters">
-        <button class="filter-btn active" data-category="all">All Spices</button>
-        <button class="filter-btn" data-category="Whole Spices">Whole Spices</button>
-        <button class="filter-btn" data-category="Ground Spices">Ground Spices</button>
-        <button class="filter-btn" data-category="Blends">Signature Blends</button>
-        <button class="filter-btn" data-category="Gift Sets">Gift Sets</button>
+      <!-- Filters -->
+      <div class="collections-tabs">
+        <button class="tab-btn active" data-category="all">All Items</button>
+        <button class="tab-btn" data-category="whole">Whole Spices</button>
+        <button class="tab-btn" data-category="ground">Ground Spices</button>
+        <button class="tab-btn" data-category="blends">Signature Blends</button>
       </div>
 
-      <!-- Product Catalog Grid -->
-      <div id="shop-catalog-grid" class="product-grid">
-        <!-- Dynamically injected via JavaScript -->
+      <!-- Products Grid -->
+      <div id="shop-products-grid" class="products-grid">
+        <!-- Rendered dynamically by app.js -->
       </div>
     </section>
   </main>
@@ -208,111 +180,118 @@
     </section>
   </main>
 
+
+
   <!-- ==================== VIEW: CONTACT ==================== -->
   <main id="view-contact" class="view-section">
     <section class="container" style="padding-top: 3rem; padding-bottom: 5rem;">
       <div class="section-title">
-        <span>Reach Us</span>
-        <h2>Reach Out to Our Team</h2>
-        <p>Whether you have questions about bulk orders, trade partnerships, or our spice origin, we are here to assist.</p>
+        <h2>Reach Us</h2>
+        <p>Whether you are looking to curate custom wedding favors, enquire about international export shipping, or simply talk about spices, we would love to hear from you.</p>
       </div>
 
       <div class="contact-grid">
+        <!-- Contact Info Details -->
         <div class="contact-info">
+          <h3>The Deccan Spice House</h3>
+          <p style="margin-bottom: 2rem; font-weight: 300;">Step in or write to us. Our doors are always open to lovers of flavor. Whether you're an importer, distributor, or retailer — we respond to every serious enquiry within 24 hours.</p>
+          
           <div class="contact-info-item">
-            <div class="contact-icon">📍</div>
             <div>
-              <h4>Corporate Office & Warehouse</h4>
+              <strong>Office Address</strong>
               <p>Deccan Gold Spices,<br>252, Old Ramdaspeth,<br>Nagpur, Maharashtra, India 440010</p>
             </div>
           </div>
+
           <div class="contact-info-item">
-            <div class="contact-icon">✉️</div>
             <div>
-              <h4>Email Inquiries</h4>
-              <p>export@deccangoldspices.com<br>info@deccangoldspices.com</p>
+              <strong>Email</strong>
+              <p><a href="mailto:deccangoldind@gmail.com">deccangoldind@gmail.com</a></p>
             </div>
           </div>
+
           <div class="contact-info-item">
-            <div class="contact-icon">📞</div>
             <div>
-              <h4>Direct Phone & WhatsApp</h4>
-              <p>+91 96653 51661 (Export Desk)<br>+91 96653 51661 (General Inquiry)</p>
+              <strong>Contact</strong>
+              <p><a href="tel:+919665351661">+91 96653 51661</a> (Mon-Sat, 9am - 6pm IST)</p>
             </div>
           </div>
         </div>
 
-        <div class="contact-form-container">
-          <form id="contact-form" class="contact-form">
-            <div class="form-group">
-              <label for="contact-name">Full Name *</label>
-              <input type="text" id="contact-name" required placeholder="John Doe">
+        <!-- Contact Form -->
+        <div class="contact-form-box">
+          <form id="contact-us-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="contact-name">Full Name</label>
+                <input type="text" id="contact-name" class="form-control" placeholder="Vikram Sen" required>
+              </div>
+              <div class="form-group">
+                <label for="contact-company">Company <span style="font-size:0.8rem; opacity:0.7;">(Optional)</span></label>
+                <input type="text" id="contact-company" class="form-control" placeholder="Spice Trade Co.">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="contact-email">Email ID</label>
+                <input type="email" id="contact-email" class="form-control" placeholder="vikram@example.com" required>
+              </div>
+              <div class="form-group">
+                <label for="contact-phone">Phone Number</label>
+                <input type="tel" id="contact-phone" class="form-control" placeholder="+91 98765 43210" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="contact-country">Country</label>
+                <input type="text" id="contact-country" class="form-control" placeholder="India" required>
+              </div>
+              <div class="form-group">
+                <label for="contact-subject">Inquiry Subject</label>
+                <select id="contact-subject" class="form-control" style="appearance: auto; padding: 0.8rem;" required>
+                  <option value="exports">Global Exports & Bulk Trade</option>
+                  <option value="general">General Culinary Question</option>
+                  <option value="orders">Online Order Support</option>
+                  <option value="giftboxes">Custom Gifting & Favors</option>
+                </select>
+              </div>
             </div>
             <div class="form-group">
-              <label for="contact-email">Email ID *</label>
-              <input type="email" id="contact-email" required placeholder="john@example.com">
+              <label for="contact-message">Your Message</label>
+              <textarea id="contact-message" class="form-control" rows="5" placeholder="Product, quantity, destination, packaging preferences, frequency of orders…" style="font-family: inherit; resize: vertical;" required></textarea>
             </div>
-            <div class="form-group">
-              <label for="contact-company">Company (Optional)</label>
-              <input type="text" id="contact-company" placeholder="Your Business / Restaurant Name">
-            </div>
-            <div class="form-group">
-              <label for="contact-phone">Phone Number</label>
-              <input type="tel" id="contact-phone" placeholder="+1 (555) 000-0000">
-            </div>
-            <div class="form-group">
-              <label for="contact-country">Country *</label>
-              <input type="text" id="contact-country" required placeholder="United States, United Kingdom, etc.">
-            </div>
-            <div class="form-group">
-              <label for="contact-subject">Inquiry Subject *</label>
-              <select id="contact-subject" required>
-                <option value="">Select an inquiry type</option>
-                <option value="bulk">Bulk / Wholesale Export Inquiry</option>
-                <option value="private-label">Private Label & Custom Packaging</option>
-                <option value="sample">Sample Request</option>
-                <option value="retail">Retail Order Inquiry</option>
-                <option value="general">General Support</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="contact-message">Your Message *</label>
-              <textarea id="contact-message" rows="5" required placeholder="Describe your spice requirements, target quantity, or destination port..."></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Inquiry &rarr;</button>
+            <button type="submit" class="btn btn-primary" style="width: 100%; display: block; text-align: center;">ENQUIRY</button>
           </form>
         </div>
       </div>
     </section>
   </main>
 
+
+
+
+
   <!-- Certifications Bar -->
   <section class="certifications-bar">
-    <div class="container">
-      <div class="section-title" style="margin-bottom: 2.5rem; text-align: center;">
-        <span>Compliance & Quality Assurance</span>
-        <h2 style="font-size: 2rem; color: var(--color-gold); font-family: var(--font-serif);">Our Certifications & Licenses</h2>
+    <div class="container certifications-container">
+      <div class="cert-item-with-logo">
+        <img class="cert-logo-img" src="assets/apeda.png" alt="APEDA Registered Logo">
+        <span>APEDA Registered</span>
       </div>
-      <div class="certifications-container">
-        <div class="cert-item-with-logo">
-          <img class="cert-logo-img" src="assets/apeda.png" alt="APEDA Registered Logo">
-          <span>APEDA Registered</span>
-        </div>
 
-        <div class="cert-item-with-logo">
-          <img class="cert-logo-img" src="assets/gst.png" alt="GST Compliant Logo">
-          <span>GST Compliant</span>
-        </div>
+      <div class="cert-item-with-logo">
+        <img class="cert-logo-img" src="assets/gst.png" alt="GST Compliant Logo">
+        <span>GST Compliant</span>
+      </div>
 
-        <div class="cert-item-with-logo">
-          <img class="cert-logo-img" src="assets/iec.png" alt="IEC Certified Logo">
-          <span>IEC Certified</span>
-        </div>
+      <div class="cert-item-with-logo">
+        <img class="cert-logo-img" src="assets/iec.png" alt="IEC Certified Logo">
+        <span>IEC Certified</span>
+      </div>
 
-        <div class="cert-item-with-logo">
-          <img class="cert-logo-img" src="assets/fssai.png" alt="FSSAI Licensed Logo">
-          <span>FSSAI Licensed</span>
-        </div>
+      <div class="cert-item-with-logo">
+        <img class="cert-logo-img" src="assets/fssai.png" alt="FSSAI Licensed Logo">
+        <span>FSSAI Licensed</span>
       </div>
     </div>
   </section>

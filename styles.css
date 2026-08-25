@@ -1758,10 +1758,9 @@ footer {
 
 /* --- Certifications Bar (above footer) --- */
 .certifications-bar {
-  background-color: #1A1A1A;
+  background-color: var(--color-charcoal);
   border-top: 1px solid var(--color-border);
-  border-bottom: 1px solid var(--color-border);
-  padding: 4rem 0;
+  padding: 3rem 0;
   margin-top: 5rem;
 }
 
