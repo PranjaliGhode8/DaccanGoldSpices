@@ -1129,7 +1129,7 @@ footer {
   font-family: var(--font-serif);
   font-size: 1.8rem;
   font-weight: 700;
-  color: var(--color-charcoal);
+  color: var(--color-gold);
   margin-bottom: 1.5rem;
 }
 
@@ -1259,7 +1259,7 @@ footer {
 
 .reviews-title {
   font-size: 1.2rem;
-  color: var(--color-charcoal);
+  color: var(--color-gold);
 }
 
 .review-item {
