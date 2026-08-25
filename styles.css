@@ -162,7 +162,7 @@ header.scrolled .logo-image {
 
 .logo-text {
   font-family: var(--font-serif);
-  font-size: 0.9rem;
+  font-size: 1.15rem;
   font-weight: 700;
   color: var(--color-gold);
   text-transform: uppercase;
@@ -172,7 +172,7 @@ header.scrolled .logo-image {
 }
 
 header.scrolled .logo-text {
-  font-size: 0.75rem;
+  font-size: 0.9rem;
 }
 
 @media (min-width: 901px) {
@@ -1610,10 +1610,10 @@ footer {
     height: 2.8rem;
   }
   .logo-text {
-    font-size: 0.8rem;
+    font-size: 1.0rem;
   }
   header.scrolled .logo-text {
-    font-size: 0.65rem;
+    font-size: 0.8rem;
   }
   nav {
     top: 8.5rem;
