@@ -1395,6 +1395,35 @@ footer {
   border-left: 4px solid var(--color-gold);
 }
 
+/* Contact Page Specific white form box & black text */
+.contact-form-box {
+  background-color: #ffffff;
+  padding: 3.5rem;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-lg);
+}
+
+.contact-form-box label {
+  color: #000000 !important;
+  font-weight: 700;
+}
+
+.contact-form-box .form-control {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  border: 1px solid #cccccc !important;
+}
+
+.contact-form-box .form-control::placeholder {
+  color: #777777 !important;
+  opacity: 0.8;
+}
+
+.contact-form-box .form-control:focus {
+  border-color: var(--color-gold) !important;
+  background-color: #fcfcfc !important;
+}
+
 .contact-info h3 {
   font-size: 1.8rem;
   color: var(--color-gold);
