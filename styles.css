@@ -1721,6 +1721,7 @@ footer {
   color: var(--color-gold);
   margin-bottom: 1rem;
   opacity: 0.6;
+  font-style: normal;
 }
 
 .story-points-card .story-point-title {
@@ -1730,6 +1731,7 @@ footer {
   color: var(--color-gold);
   margin: 0 0 1rem 0;
   letter-spacing: normal;
+  font-style: normal;
 }
 
 .story-points-card .story-point-text {
