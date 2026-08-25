@@ -140,12 +140,16 @@ header.scrolled .header-container {
 
 .logo-wrapper {
   display: flex;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  gap: 0.3rem;
   height: 100%;
 }
 
 .logo-image {
-  height: 9.5rem;
+  height: 5.5rem;
   width: auto;
   display: block;
   image-rendering: -webkit-optimize-contrast;
@@ -153,7 +157,22 @@ header.scrolled .header-container {
 }
 
 header.scrolled .logo-image {
-  height: 6.2rem;
+  height: 3.6rem;
+}
+
+.logo-text {
+  font-family: var(--font-serif);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--color-gold);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+  transition: var(--transition);
+}
+
+header.scrolled .logo-text {
+  font-size: 0.75rem;
 }
 
 @media (min-width: 901px) {
@@ -1585,10 +1604,16 @@ footer {
     height: 6.0rem;
   }
   .logo-image {
-    height: 7.0rem;
+    height: 3.8rem;
   }
   header.scrolled .logo-image {
-    height: 5.0rem;
+    height: 2.8rem;
+  }
+  .logo-text {
+    font-size: 0.8rem;
+  }
+  header.scrolled .logo-text {
+    font-size: 0.65rem;
   }
   nav {
     top: 8.5rem;
