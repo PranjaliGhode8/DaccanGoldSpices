@@ -968,6 +968,51 @@ footer {
   gap: 1rem;
 }
 
+.instagram-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.4rem 1.1rem 0.4rem 0.5rem;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 30px;
+  color: var(--color-ivory);
+  text-decoration: none;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.instagram-pill-btn .instagram-icon-badge {
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  box-shadow: 0 3px 10px rgba(214, 36, 159, 0.4);
+}
+
+.instagram-pill-btn .instagram-icon-badge svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  fill: #ffffff;
+}
+
+.instagram-pill-btn:hover {
+  border-color: #d6249f;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(214, 36, 159, 0.25);
+  background-color: #1a1a1a;
+}
+
+.instagram-pill-btn:hover .instagram-handle-text {
+  color: var(--color-gold);
+}
+
 .social-icon {
   width: 2.2rem;
   height: 2.2rem;
