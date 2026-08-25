@@ -1742,42 +1742,52 @@ footer {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  gap: 3.5rem;
+  gap: 4.5rem;
 }
 
-.cert-item {
+.cert-item-with-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: var(--transition);
+}
+
+.cert-svg {
+  width: 70px;
+  height: 70px;
+  margin-bottom: 0.8rem;
+  transition: var(--transition);
+}
+
+.cert-item-with-logo span {
   font-family: var(--font-serif);
-  font-size: 1.1rem;
+  font-size: 0.9rem;
   font-weight: 700;
   color: var(--color-gold);
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  position: relative;
-  transition: var(--transition);
 }
 
-.cert-item:not(:last-child)::after {
-  content: "•";
-  position: absolute;
-  right: -2rem;
-  color: rgba(197, 168, 128, 0.4);
-  pointer-events: none;
+.cert-item-with-logo:hover .cert-svg {
+  transform: scale(1.1) rotate(3deg);
 }
 
-.cert-item:hover {
+.cert-item-with-logo:hover span {
   color: var(--color-turmeric);
-  transform: translateY(-2px);
 }
 
 @media (max-width: 768px) {
   .certifications-container {
     justify-content: center;
-    gap: 1.5rem;
+    gap: 2.2rem;
   }
-  .cert-item {
-    font-size: 0.9rem;
+  .cert-svg {
+    width: 55px;
+    height: 55px;
+    margin-bottom: 0.5rem;
   }
-  .cert-item:not(:last-child)::after {
-    display: none;
+  .cert-item-with-logo span {
+    font-size: 0.8rem;
   }
 }
