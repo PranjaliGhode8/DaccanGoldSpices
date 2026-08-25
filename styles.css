@@ -6,7 +6,7 @@
   --color-turmeric: #FFD700;      /* Bright Gold (WhatsApp / Focus Highlights) */
   --color-deep-red: #8c6239;      /* Dark Cinnamon Gold */
   --color-cinnamon: #C5A880;      /* Accents / Borders */
-  --color-gold: #C5A880;          /* Brand Muted Gold */
+  --color-gold: #FFD700;          /* Brand Muted Gold */
   --color-gold-bright: #FFD700;   /* WhatsApp Bright Gold */
   --color-ivory: #FAF6F0;         /* Premium Off-White Text */
   --color-ivory-dark: #D2C9BD;    /* Muted text description */
@@ -1541,7 +1541,7 @@ footer {
   font-family: var(--font-serif);
   font-style: italic;
   font-size: 1.8rem;
-  color: #c5a880;
+  color: var(--color-gold);
   font-weight: 500;
   line-height: 1;
 }
