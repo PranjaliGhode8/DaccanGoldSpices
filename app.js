@@ -1,4 +1,4 @@
-// --- Deccan Gold Spice E-Commerce Core JavaScript ---
+// --- Deccan Gold Spices E-Commerce Core JavaScript ---
 
 // 1. Product Database
 const products = [
@@ -389,7 +389,7 @@ function detectRegion() {
   const locale = navigator.language || "";
   const regionBannerText = document.getElementById("region-banner-text");
 
-  let recommendation = "Welcome to Deccan Gold Spice! We ship premium single-origin spices worldwide with free shipping over $75.";
+  let recommendation = "Welcome to Deccan Gold Spices! We ship premium single-origin spices worldwide with free shipping over $75.";
   
   if (timeZone.includes("America") || locale.includes("US") || locale.includes("CA")) {
     recommendation = "🌶️ Visiting from North America? Warm up your kitchen with our stone-ground Royal Garam Masala. Free shipping over $75 USD.";
