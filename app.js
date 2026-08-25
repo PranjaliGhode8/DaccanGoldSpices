@@ -442,7 +442,7 @@ function renderProducts(categoryFilter) {
         <div class="product-info">
           <span class="product-category">${p.category}</span>
           <h3 class="product-title" onclick="openProductModal('${p.id}')">${p.name}</h3>
-          <p style="font-size:0.85rem; color:#666; font-weight:300; margin-bottom:1rem; flex-grow:1;">
+          <p style="font-size:0.85rem; color:var(--color-ivory-dark); font-weight:300; margin-bottom:1rem; flex-grow:1;">
             ${p.origin}
           </p>
           <div class="product-meta-row" style="justify-content: center;">

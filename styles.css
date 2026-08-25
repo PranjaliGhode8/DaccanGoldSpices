@@ -9,7 +9,7 @@
   --color-gold: #C5A880;          /* Brand Muted Gold */
   --color-gold-bright: #FFD700;   /* WhatsApp Bright Gold */
   --color-ivory: #FAF6F0;         /* Premium Off-White Text */
-  --color-ivory-dark: #A5A29B;    /* Muted text description */
+  --color-ivory-dark: #D2C9BD;    /* Muted text description */
   --color-charcoal: #0B0B0B;      /* Sophisticated Black Base background */
   --color-white: #161616;         /* Sophisticated container background */
   --color-border: rgba(197, 168, 128, 0.2);
@@ -505,12 +505,12 @@ nav a:hover::after, nav a.active::after {
 .badge-item h4 {
   font-size: 1.1rem;
   margin-bottom: 0.25rem;
-  color: var(--color-charcoal);
+  color: var(--color-gold);
 }
 
 .badge-item p {
   font-size: 0.85rem;
-  color: #666;
+  color: var(--color-ivory-dark);
 }
 
 @media (max-width: 768px) {
@@ -539,13 +539,13 @@ nav a:hover::after, nav a.active::after {
 
 .section-title h2 {
   font-size: 2.5rem;
-  color: var(--color-deep-red);
+  color: var(--color-gold);
   margin-bottom: 1rem;
   line-height: 1.2;
 }
 
 .section-title p {
-  color: #666;
+  color: var(--color-ivory-dark);
   font-size: 1rem;
 }
 
@@ -879,7 +879,7 @@ nav a:hover::after, nav a.active::after {
 }
 
 .story-text-block p {
-  color: #444;
+  color: var(--color-ivory-dark);
   font-size: 1.05rem;
   line-height: 1.8;
   font-weight: 300;
@@ -1288,7 +1288,7 @@ footer {
 
 .review-text {
   font-size: 0.85rem;
-  color: #555;
+  color: var(--color-ivory-dark);
   font-weight: 300;
   line-height: 1.5;
 }
@@ -1423,20 +1423,20 @@ footer {
   font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: var(--color-cinnamon);
+  color: var(--color-gold);
   display: block;
   margin-bottom: 0.3rem;
 }
 
 .contact-info-item p {
   font-size: 0.95rem;
-  color: #555;
+  color: var(--color-ivory-dark);
   font-weight: 300;
   line-height: 1.6;
 }
 
 .contact-info-item a {
-  color: var(--color-deep-red);
+  color: var(--color-gold);
   font-weight: 500;
 }
 
@@ -1522,7 +1522,7 @@ footer {
   font-style: italic;
   font-weight: 600;
   font-size: 1.35rem;
-  color: var(--color-charcoal);
+  color: var(--color-gold);
   margin: 0;
   letter-spacing: -0.01em;
   line-height: 1.2;
@@ -1532,7 +1532,7 @@ footer {
   font-family: var(--font-sans);
   font-size: 0.95rem;
   line-height: 1.6;
-  color: #6c665e;
+  color: var(--color-ivory-dark);
   font-weight: 300;
   margin: 0;
 }
