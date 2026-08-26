@@ -1853,14 +1853,15 @@ footer {
 
 /* --- Welcome Screen Overlay --- */
 /* --- Welcome Screen Overlay --- */
+/* --- Welcome Screen Overlay --- */
 .welcome-screen {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: var(--color-charcoal);
-  background-image: radial-gradient(circle at center, #1A1713 0%, #0B0B0B 100%);
+  background-color: #FAF6F0;
+  background-image: radial-gradient(circle at center, #FFFFFF 0%, #FAF6F0 100%);
   z-index: 99999;
   display: flex;
   align-items: center;
@@ -1882,13 +1883,13 @@ footer {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  max-width: 600px;
+  max-width: 700px;
 }
 
 @keyframes logoFadeIn {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(25px);
   }
   to {
     opacity: 1;
@@ -1898,38 +1899,45 @@ footer {
 
 @keyframes lineExpand {
   to {
-    width: 120px;
+    width: 180px;
   }
 }
 
 .welcome-logo-box {
-  margin-bottom: 1.5rem;
-  position: relative;
-}
-
-.welcome-logo-image {
-  height: 11rem;
-  width: auto;
-  object-fit: contain;
-  filter: drop-shadow(0 10px 25px rgba(197, 168, 128, 0.25));
+  width: 17rem;
+  height: 17rem;
+  border-radius: 50%;
+  background-color: var(--color-charcoal);
+  border: 2px solid var(--color-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(197, 168, 128, 0.15);
   opacity: 0;
   animation: logoFadeIn 1.5s forwards cubic-bezier(0.16, 1, 0.3, 1);
   transition: transform 0.5s ease;
 }
 
-.welcome-logo-image:hover {
-  transform: scale(1.05);
+.welcome-logo-box:hover {
+  transform: scale(1.03);
+}
+
+.welcome-logo-image {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
 
 .welcome-brand-title {
   font-family: var(--font-serif);
-  font-size: 2.8rem;
+  font-size: 3.8rem;
   font-weight: 700;
-  color: var(--color-gold);
+  color: #0B0B0B;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   margin-bottom: 0.8rem;
-  text-shadow: 0 4px 20px rgba(197, 168, 128, 0.2);
   opacity: 0;
   animation: logoFadeIn 1.5s 0.2s forwards cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -1945,26 +1953,28 @@ footer {
 
 .welcome-subtitle {
   font-family: var(--font-sans);
-  font-size: 1.1rem;
-  font-weight: 300;
-  color: var(--color-ivory-dark);
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: #4A3E30;
   letter-spacing: 0.05em;
   margin-bottom: 0;
-  max-width: 480px;
+  max-width: 520px;
   opacity: 0;
   animation: logoFadeIn 1.5s 0.4s forwards cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @media (max-width: 600px) {
-  .welcome-logo-image {
-    height: 8rem;
+  .welcome-logo-box {
+    width: 12rem;
+    height: 12rem;
+    margin-bottom: 1.5rem;
   }
   .welcome-brand-title {
-    font-size: 2.0rem;
+    font-size: 2.5rem;
     letter-spacing: 0.08em;
   }
   .welcome-subtitle {
-    font-size: 0.95rem;
+    font-size: 1.05rem;
     margin-bottom: 0;
   }
 }
