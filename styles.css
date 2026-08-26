@@ -1860,8 +1860,8 @@ footer {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: #FAF6F0;
-  background-image: radial-gradient(circle at center, #FFFFFF 0%, #FAF6F0 100%);
+  background-color: var(--color-charcoal);
+  background-image: radial-gradient(circle at center, #1A1713 0%, #0B0B0B 100%);
   z-index: 99999;
   display: flex;
   align-items: center;
@@ -1904,17 +1904,8 @@ footer {
 }
 
 .welcome-logo-box {
-  width: 17rem;
-  height: 17rem;
-  border-radius: 50%;
-  background-color: var(--color-charcoal);
-  border: 2px solid var(--color-gold);
-  display: flex;
-  align-items: center;
-  justify-content: center;
   margin-bottom: 2rem;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(197, 168, 128, 0.15);
+  position: relative;
   opacity: 0;
   animation: logoFadeIn 1.5s forwards cubic-bezier(0.16, 1, 0.3, 1);
   transition: transform 0.5s ease;
@@ -1925,19 +1916,21 @@ footer {
 }
 
 .welcome-logo-image {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
+  height: 15rem;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 25px rgba(197, 168, 128, 0.25));
 }
 
 .welcome-brand-title {
   font-family: var(--font-serif);
   font-size: 3.8rem;
   font-weight: 700;
-  color: #0B0B0B;
+  color: var(--color-gold);
   letter-spacing: 0.12em;
   text-transform: uppercase;
   margin-bottom: 0.8rem;
+  text-shadow: 0 4px 20px rgba(197, 168, 128, 0.2);
   opacity: 0;
   animation: logoFadeIn 1.5s 0.2s forwards cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -1955,7 +1948,7 @@ footer {
   font-family: var(--font-sans);
   font-size: 1.3rem;
   font-weight: 400;
-  color: #4A3E30;
+  color: var(--color-ivory-dark);
   letter-spacing: 0.05em;
   margin-bottom: 0;
   max-width: 520px;
@@ -1964,9 +1957,10 @@ footer {
 }
 
 @media (max-width: 600px) {
+  .welcome-logo-image {
+    height: 11rem;
+  }
   .welcome-logo-box {
-    width: 12rem;
-    height: 12rem;
     margin-bottom: 1.5rem;
   }
   .welcome-brand-title {
