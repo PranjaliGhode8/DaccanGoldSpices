@@ -549,18 +549,11 @@ function showToast(message) {
 // --- Welcome / Splash Screen Handler ---
 document.addEventListener("DOMContentLoaded", () => {
   const welcomeScreen = document.getElementById("welcome-screen");
-  const enterBtn = document.getElementById("enter-site-btn");
 
   if (welcomeScreen) {
-    const dismissWelcome = () => {
-      welcomeScreen.classList.add("hidden");
-    };
-
     // Auto-dismiss after 1 second (1000ms)
-    setTimeout(dismissWelcome, 1000);
-
-    if (enterBtn) {
-      enterBtn.addEventListener("click", dismissWelcome);
-    }
+    setTimeout(() => {
+      welcomeScreen.classList.add("hidden");
+    }, 1000);
   }
 });

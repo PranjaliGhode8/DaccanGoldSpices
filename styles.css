@@ -1930,33 +1930,8 @@ footer {
   font-weight: 300;
   color: var(--color-ivory-dark);
   letter-spacing: 0.05em;
-  margin-bottom: 3rem;
+  margin-bottom: 0;
   max-width: 480px;
-}
-
-.welcome-enter-btn {
-  background: linear-gradient(135deg, #C5A880 0%, #A38558 100%);
-  color: #0B0B0B;
-  border: none;
-  padding: 1.1rem 3rem;
-  font-family: var(--font-serif);
-  font-size: 1rem;
-  font-weight: 700;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  border-radius: 40px;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.8rem;
-  box-shadow: 0 8px 25px rgba(197, 168, 128, 0.3);
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.welcome-enter-btn:hover {
-  background: linear-gradient(135deg, #DFBE90 0%, #C5A880 100%);
-  transform: translateY(-3px) scale(1.03);
-  box-shadow: 0 12px 35px rgba(197, 168, 128, 0.45);
 }
 
 @media (max-width: 600px) {
@@ -1969,10 +1944,6 @@ footer {
   }
   .welcome-subtitle {
     font-size: 0.95rem;
-    margin-bottom: 2.2rem;
-  }
-  .welcome-enter-btn {
-    padding: 0.9rem 2.2rem;
-    font-size: 0.9rem;
+    margin-bottom: 0;
   }
 }
