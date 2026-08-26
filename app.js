@@ -551,11 +551,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const welcomeScreen = document.getElementById("welcome-screen");
   const enterBtn = document.getElementById("enter-site-btn");
 
-  if (welcomeScreen && enterBtn) {
+  if (welcomeScreen) {
     const dismissWelcome = () => {
       welcomeScreen.classList.add("hidden");
     };
 
-    enterBtn.addEventListener("click", dismissWelcome);
+    // Auto-dismiss after 1 second (1000ms)
+    setTimeout(dismissWelcome, 1000);
+
+    if (enterBtn) {
+      enterBtn.addEventListener("click", dismissWelcome);
+    }
   }
 });
