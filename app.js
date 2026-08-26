@@ -545,3 +545,17 @@ function showToast(message) {
     toast.style.transform = "translateX(-50%) translateY(100px)";
   }, 3500);
 }
+
+// --- Welcome / Splash Screen Handler ---
+document.addEventListener("DOMContentLoaded", () => {
+  const welcomeScreen = document.getElementById("welcome-screen");
+  const enterBtn = document.getElementById("enter-site-btn");
+
+  if (welcomeScreen && enterBtn) {
+    const dismissWelcome = () => {
+      welcomeScreen.classList.add("hidden");
+    };
+
+    enterBtn.addEventListener("click", dismissWelcome);
+  }
+});

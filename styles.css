@@ -149,7 +149,7 @@ header.scrolled .header-container {
 }
 
 .logo-image {
-  height: 5.5rem;
+  height: 6.8rem;
   width: auto;
   display: block;
   image-rendering: -webkit-optimize-contrast;
@@ -157,12 +157,12 @@ header.scrolled .header-container {
 }
 
 header.scrolled .logo-image {
-  height: 3.6rem;
+  height: 4.5rem;
 }
 
 .logo-text {
   font-family: var(--font-serif);
-  font-size: 1.15rem;
+  font-size: 1.35rem;
   font-weight: 700;
   color: var(--color-gold);
   text-transform: uppercase;
@@ -172,7 +172,7 @@ header.scrolled .logo-image {
 }
 
 header.scrolled .logo-text {
-  font-size: 0.9rem;
+  font-size: 1.05rem;
 }
 
 @media (min-width: 901px) {
@@ -1849,5 +1849,130 @@ footer {
   }
   .cert-item-with-logo span {
     font-size: 0.8rem;
+  }
+}
+
+/* --- Welcome Screen Overlay --- */
+.welcome-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--color-charcoal);
+  background-image: radial-gradient(circle at center, #1A1713 0%, #0B0B0B 100%);
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.8s ease, transform 0.8s ease;
+}
+
+.welcome-screen.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: scale(1.04);
+}
+
+.welcome-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 600px;
+  animation: welcomeFadeIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes welcomeFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.welcome-logo-box {
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.welcome-logo-image {
+  height: 11rem;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 25px rgba(197, 168, 128, 0.25));
+  transition: transform 0.5s ease;
+}
+
+.welcome-logo-image:hover {
+  transform: scale(1.05);
+}
+
+.welcome-brand-title {
+  font-family: var(--font-serif);
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--color-gold);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
+  text-shadow: 0 4px 20px rgba(197, 168, 128, 0.2);
+}
+
+.welcome-subtitle {
+  font-family: var(--font-sans);
+  font-size: 1.1rem;
+  font-weight: 300;
+  color: var(--color-ivory-dark);
+  letter-spacing: 0.05em;
+  margin-bottom: 3rem;
+  max-width: 480px;
+}
+
+.welcome-enter-btn {
+  background: linear-gradient(135deg, #C5A880 0%, #A38558 100%);
+  color: #0B0B0B;
+  border: none;
+  padding: 1.1rem 3rem;
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border-radius: 40px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  box-shadow: 0 8px 25px rgba(197, 168, 128, 0.3);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.welcome-enter-btn:hover {
+  background: linear-gradient(135deg, #DFBE90 0%, #C5A880 100%);
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 12px 35px rgba(197, 168, 128, 0.45);
+}
+
+@media (max-width: 600px) {
+  .welcome-logo-image {
+    height: 8rem;
+  }
+  .welcome-brand-title {
+    font-size: 2.0rem;
+    letter-spacing: 0.08em;
+  }
+  .welcome-subtitle {
+    font-size: 0.95rem;
+    margin-bottom: 2.2rem;
+  }
+  .welcome-enter-btn {
+    padding: 0.9rem 2.2rem;
+    font-size: 0.9rem;
   }
 }
