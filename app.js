@@ -442,10 +442,7 @@ function renderProducts(categoryFilter) {
         <div class="product-info">
           <span class="product-category">${p.category}</span>
           <h3 class="product-title" onclick="openProductModal('${p.id}')">${p.name}</h3>
-          <p style="font-size:0.85rem; color:var(--color-ivory-dark); font-weight:300; margin-bottom:1rem; flex-grow:1;">
-            ${p.origin}
-          </p>
-          <div class="product-meta-row" style="justify-content: center;">
+          <div class="product-meta-row" style="justify-content: center; margin-top: auto; padding-top: 1rem;">
             <button class="quick-add-btn" onclick="openProductModal('${p.id}')" style="width: 100%; text-align: center;">Explore</button>
           </div>
         </div>
@@ -469,7 +466,6 @@ function openProductModal(productId) {
   document.getElementById("modal-img").alt = p.name;
   document.getElementById("modal-category").textContent = p.category;
   document.getElementById("modal-title").textContent = p.name;
-  document.getElementById("modal-origin").textContent = p.origin;
   document.getElementById("modal-description").textContent = p.description;
 
   // Aroma & Taste Metadata
