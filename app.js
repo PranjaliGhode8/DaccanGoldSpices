@@ -663,6 +663,7 @@ function toggleTestingStandards(btn, productId) {
       acc.classList.remove("open");
       const parentCard = acc.closest(".product-card");
       if (parentCard) {
+        parentCard.classList.remove("active-card");
         const toggleBtn = parentCard.querySelector(".testing-standards-btn");
         if (toggleBtn) {
           toggleBtn.setAttribute("aria-expanded", "false");
@@ -671,11 +672,19 @@ function toggleTestingStandards(btn, productId) {
     });
   }
 
+  const currentCard = accordion.closest(".product-card");
+
   if (isOpen) {
     accordion.classList.remove("open");
+    if (currentCard) {
+      currentCard.classList.remove("active-card");
+    }
     btn.setAttribute("aria-expanded", "false");
   } else {
     accordion.classList.add("open");
+    if (currentCard) {
+      currentCard.classList.add("active-card");
+    }
     btn.setAttribute("aria-expanded", "true");
   }
 }
