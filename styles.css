@@ -755,6 +755,87 @@ nav a:hover::after, nav a.active::after {
   border-color: var(--color-turmeric);
 }
 
+/* --- Testing Standards Accordion --- */
+.testing-standards-btn {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-ivory);
+  border-bottom: 1.5px solid var(--color-gold);
+  padding-bottom: 0.1rem;
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  cursor: pointer;
+  width: 100%;
+  background: transparent;
+  outline: none;
+}
+
+.testing-standards-btn:hover {
+  color: var(--color-turmeric);
+  border-color: var(--color-turmeric);
+}
+
+.testing-standards-btn .chevron-icon {
+  transition: transform 0.3s ease;
+  fill: none;
+  stroke: currentColor;
+  width: 10px;
+  height: 10px;
+  margin-top: -1px;
+}
+
+.testing-standards-btn[aria-expanded="true"] .chevron-icon {
+  transform: rotate(180deg);
+}
+
+.testing-standards-accordion {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+  overflow: hidden;
+  opacity: 0;
+  width: 100%;
+  text-align: left;
+}
+
+.testing-standards-accordion.open {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+.testing-standards-content {
+  min-height: 0;
+  padding-top: 1rem;
+}
+
+.testing-standards-content ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+.testing-standards-content li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: var(--color-ivory-dark);
+}
+
+.testing-standards-content .checkmark-icon {
+  color: var(--color-gold);
+  margin-top: 0.2rem;
+  flex-shrink: 0;
+}
+
 /* --- Brand Story Section --- */
 .story-promo {
   display: grid;

@@ -244,6 +244,89 @@ const products = [
   }
 ];
 
+// 1.2. Testing Standards Map by Product ID
+const testingStandardsMap = {
+  chilli_powder: [
+    "Scoville Heat Units (SHU) / Capsaicin",
+    "Aflatoxins",
+    "Ochratoxin A",
+    "Sudan Dye I–IV screening",
+    "ASTA color values"
+  ],
+  whole_red_chilli: [
+    "Scoville Heat Units (SHU) / Capsaicin",
+    "Aflatoxins",
+    "Ochratoxin A",
+    "Sudan Dye I–IV screening",
+    "ASTA color values"
+  ],
+  turmeric_powder: [
+    "Curcumin content verification",
+    "Lead chromate / Metanil yellow screening",
+    "Heavy metals",
+    "Starch purity"
+  ],
+  garam_masala: [
+    "Essential oil profiling",
+    "Peroxide Value (PV) & Free Fatty Acids (FFA) — rancidity check for roasted/oil blends",
+    "Aflatoxins",
+    "Pathogen limits"
+  ],
+  saoji_masala: [
+    "Essential oil profiling",
+    "Peroxide Value (PV) & Free Fatty Acids (FFA) — rancidity check for roasted/oil blends",
+    "Aflatoxins",
+    "Pathogen limits"
+  ],
+  goda_masala: [
+    "Essential oil profiling",
+    "Peroxide Value (PV) & Free Fatty Acids (FFA) — rancidity check for roasted/oil blends",
+    "Aflatoxins",
+    "Pathogen limits"
+  ],
+  cardamom_pods: [
+    "Essential oil percentage",
+    "Size grading (mm)",
+    "Immature pod ratio",
+    "Multi-pesticide residue screening"
+  ],
+  black_pepper: [
+    "Piperine content percentage",
+    "Bulk density (g/L)",
+    "Light berry / pinhead count",
+    "Salmonella clearance"
+  ],
+  cloves: [
+    "Eugenol content percentage",
+    "Volatile oil yield",
+    "Macro-filth inspection",
+    "Phytosanitary quarantine compliance"
+  ],
+  bay_leaf: [
+    "Eugenol content percentage",
+    "Volatile oil yield",
+    "Macro-filth inspection",
+    "Phytosanitary quarantine compliance"
+  ]
+};
+
+function getTestingStandardsList(productId) {
+  const standards = testingStandardsMap[productId] || [
+    "Purity and safety verification",
+    "Moisture and volatile oil content",
+    "Heavy metals screening",
+    "Aflatoxin and pathogen analysis"
+  ];
+  return standards.map(item => `
+    <li>
+      <svg class="checkmark-icon" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="20 6 9 17 4 12"></polyline>
+      </svg>
+      <span>${item}</span>
+    </li>
+  `).join("");
+}
+
 // 2. Currency Rates
 const currencies = {
   USD: { symbol: "$", rate: 1.0, name: "US Dollar (USD)" },
@@ -443,7 +526,20 @@ function renderProducts(categoryFilter) {
           <span class="product-category">${p.category}</span>
           <h3 class="product-title" onclick="openProductModal('${p.id}')">${p.name}</h3>
           <div class="product-meta-row" style="justify-content: center; margin-top: auto; padding-top: 1rem;">
-            <button class="quick-add-btn" onclick="openProductModal('${p.id}')" style="width: 100%; text-align: center;">Explore</button>
+            <button class="testing-standards-btn" onclick="toggleTestingStandards(this, '${p.id}')" aria-expanded="false" style="width: 100%; text-align: center;">
+              <span>Testing Standards</span>
+              <svg class="chevron-icon" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+          </div>
+          
+          <div class="testing-standards-accordion" id="accordion-${p.id}">
+            <div class="testing-standards-content">
+              <ul>
+                ${getTestingStandardsList(p.id)}
+              </ul>
+            </div>
           </div>
         </div>
       </div>
@@ -553,3 +649,19 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 1000);
   }
 });
+
+// --- Testing Standards Toggle ---
+function toggleTestingStandards(btn, productId) {
+  const accordion = document.getElementById(`accordion-${productId}`);
+  if (!accordion) return;
+
+  const isOpen = accordion.classList.contains("open");
+  
+  if (isOpen) {
+    accordion.classList.remove("open");
+    btn.setAttribute("aria-expanded", "false");
+  } else {
+    accordion.classList.add("open");
+    btn.setAttribute("aria-expanded", "true");
+  }
+}
