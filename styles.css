@@ -600,6 +600,7 @@ nav a:hover::after, nav a.active::after {
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 2.5rem;
   margin-bottom: 4rem;
+  align-items: start;
 }
 
 /* Product Card */

@@ -657,6 +657,20 @@ function toggleTestingStandards(btn, productId) {
 
   const isOpen = accordion.classList.contains("open");
   
+  // Auto-close other open accordions
+  if (!isOpen) {
+    document.querySelectorAll(".testing-standards-accordion.open").forEach(acc => {
+      acc.classList.remove("open");
+      const parentCard = acc.closest(".product-card");
+      if (parentCard) {
+        const toggleBtn = parentCard.querySelector(".testing-standards-btn");
+        if (toggleBtn) {
+          toggleBtn.setAttribute("aria-expanded", "false");
+        }
+      }
+    });
+  }
+
   if (isOpen) {
     accordion.classList.remove("open");
     btn.setAttribute("aria-expanded", "false");
