@@ -371,11 +371,16 @@ document.addEventListener("DOMContentLoaded", () => {
   // Event Listeners for Navigation Routing
   document.querySelectorAll("nav a, .footer-nav-link").forEach(link => {
     link.addEventListener("click", (e) => {
-      e.preventDefault();
       const targetView = link.getAttribute("data-view");
       if (targetView) {
+        e.preventDefault();
         switchView(targetView);
         // Collapse mobile menu if open
+        if (navMenu) {
+          navMenu.classList.remove("active");
+        }
+      } else {
+        // External link (e.g. WhatsApp, external URLs): close mobile menu if open and allow normal navigation
         if (navMenu) {
           navMenu.classList.remove("active");
         }
@@ -451,7 +456,7 @@ function switchView(viewId) {
   }
 
   // Update nav menu active states
-  document.querySelectorAll("nav a").forEach(link => {
+  document.querySelectorAll("nav a[data-view]").forEach(link => {
     link.classList.remove("active");
     if (link.getAttribute("data-view") === viewId) {
       link.classList.add("active");
