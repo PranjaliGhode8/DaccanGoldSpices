@@ -131,43 +131,48 @@ header.scrolled {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 11.0rem;
+  height: 4.8rem;
   transition: var(--transition-smooth);
 }
 
 header.scrolled .header-container {
-  height: 7.5rem;
+  height: 3.8rem;
 }
 
 .logo-wrapper {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   text-decoration: none;
-  gap: 0.3rem;
-  height: 100%;
+  gap: 0.75rem;
+  height: auto;
 }
 
 .logo-image {
-  height: 6.8rem;
-  width: auto;
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 50%;
+  object-fit: cover;
   display: block;
   image-rendering: -webkit-optimize-contrast;
   transition: var(--transition-smooth);
+  border: 1px solid var(--color-gold);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
 }
 
 header.scrolled .logo-image {
-  height: 4.5rem;
+  height: 2.1rem;
+  width: 2.1rem;
 }
 
 .logo-text {
   font-family: var(--font-serif);
-  font-size: 1.35rem;
+  font-size: 1.18rem;
   font-weight: 700;
   color: var(--color-gold);
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   white-space: nowrap;
   transition: var(--transition-smooth);
 }
@@ -179,26 +184,27 @@ header.scrolled .logo-text {
 @media (min-width: 901px) {
   nav {
     margin-left: auto;
-    margin-right: 3.5rem;
+    margin-right: 2.5rem;
   }
 }
 
 nav ul {
   display: flex;
   align-items: center;
-  gap: 2.5rem;
+  gap: 1.7rem;
 }
 
 nav a {
   font-family: var(--font-serif);
-  font-size: 0.95rem;
+  font-size: 0.88rem;
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.07em;
   text-transform: uppercase;
   color: var(--color-gold);
   opacity: 0.9;
   position: relative;
-  padding: 0.5rem 0;
+  padding: 0.4rem 0;
+  white-space: nowrap;
 }
 
 nav a::after {
@@ -218,27 +224,38 @@ nav a:hover, nav a.active {
 }
 
 .nav-whatsapp-link {
-  font-family: var(--font-serif);
-  font-size: 0.95rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--color-turmeric) !important;
-  display: inline-flex;
+  display: inline-flex !important;
   align-items: center;
-  gap: 0.6rem;
+  justify-content: center;
+  color: #25D366 !important;
+  background-color: rgba(37, 211, 102, 0.12);
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  padding: 0 !important;
   transition: var(--transition);
+  border: 1px solid rgba(37, 211, 102, 0.3);
 }
 
 .nav-whatsapp-link svg {
-  width: 2.2rem;
-  height: 2.2rem;
-  fill: currentColor;
+  width: 1.3rem;
+  height: 1.3rem;
+  fill: #25D366;
+  transition: transform 0.3s ease;
 }
 
 .nav-whatsapp-link:hover {
-  color: var(--color-gold-bright) !important;
-  transform: scale(1.05);
+  background-color: #25D366;
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.45);
+}
+
+.nav-whatsapp-link:hover svg {
+  fill: #ffffff;
+}
+
+.nav-whatsapp-link::after {
+  display: none !important;
 }
 
 nav a:hover::after, nav a.active::after {
@@ -291,7 +308,7 @@ nav a:hover::after, nav a.active::after {
   nav {
     display: block;
     position: fixed;
-    top: 11.0rem; /* below header */
+    top: 4.8rem; /* below header */
     left: 0;
     width: 100%;
     background-color: rgba(23, 23, 23, 0.98);
@@ -303,11 +320,11 @@ nav a:hover::after, nav a.active::after {
   }
 
   header.scrolled nav {
-    top: 7.5rem;
+    top: 3.8rem;
   }
 
   nav.active {
-    max-height: 350px; /* expands to show items */
+    max-height: 420px; /* expands to show items */
   }
 
   nav ul {
@@ -1756,28 +1773,30 @@ footer {
 
 @media (max-width: 600px) {
   .header-container {
-    height: 8.5rem;
+    height: 4.4rem;
   }
   header.scrolled .header-container {
-    height: 6.0rem;
+    height: 3.6rem;
   }
   .logo-image {
-    height: 3.8rem;
+    height: 2.2rem;
+    width: 2.2rem;
   }
   header.scrolled .logo-image {
-    height: 2.8rem;
+    height: 1.9rem;
+    width: 1.9rem;
   }
   .logo-text {
     font-size: 1.0rem;
   }
   header.scrolled .logo-text {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
   }
   nav {
-    top: 8.5rem;
+    top: 4.4rem;
   }
   header.scrolled nav {
-    top: 6.0rem;
+    top: 3.6rem;
   }
 }
 
